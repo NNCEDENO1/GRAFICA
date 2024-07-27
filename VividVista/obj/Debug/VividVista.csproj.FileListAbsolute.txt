@@ -1,0 +1,11 @@
+C:\Users\gamur\source\repos\VividVista\bin\Debug\VividVista.exe.config
+C:\Users\gamur\source\repos\VividVista\bin\Debug\VividVista.exe
+C:\Users\gamur\source\repos\VividVista\bin\Debug\VividVista.pdb
+C:\Users\gamur\source\repos\VividVista\obj\Debug\VividVista.csproj.AssemblyReference.cache
+C:\Users\gamur\source\repos\VividVista\obj\Debug\VividVista.Properties.Resources.resources
+C:\Users\gamur\source\repos\VividVista\obj\Debug\VividVista.csproj.GenerateResource.cache
+C:\Users\gamur\source\repos\VividVista\obj\Debug\VividVista.csproj.CoreCompileInputs.cache
+C:\Users\gamur\source\repos\VividVista\obj\Debug\VividVista.exe
+C:\Users\gamur\source\repos\VividVista\obj\Debug\VividVista.pdb
+C:\Users\gamur\source\repos\VividVista\obj\Debug\VividVista.MainWindow.resources
+C:\Users\gamur\source\repos\VividVista\obj\Debug\VividVista.AppResources.resources
