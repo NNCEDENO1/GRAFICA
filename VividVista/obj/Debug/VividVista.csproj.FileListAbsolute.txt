@@ -20,3 +20,14 @@ C:\Users\lilit\Desktop\PROYECTOP2\GRAFICA\VividVista\obj\Debug\VividVista.csproj
 C:\Users\lilit\Desktop\PROYECTOP2\GRAFICA\VividVista\obj\Debug\VividVista.csproj.CoreCompileInputs.cache
 C:\Users\lilit\Desktop\PROYECTOP2\GRAFICA\VividVista\obj\Debug\VividVista.exe
 C:\Users\lilit\Desktop\PROYECTOP2\GRAFICA\VividVista\obj\Debug\VividVista.pdb
+C:\Users\USUARIO\GRAFICA\VividVista\bin\Debug\VividVista.exe.config
+C:\Users\USUARIO\GRAFICA\VividVista\bin\Debug\VividVista.exe
+C:\Users\USUARIO\GRAFICA\VividVista\bin\Debug\VividVista.pdb
+C:\Users\USUARIO\GRAFICA\VividVista\obj\Debug\VividVista.csproj.AssemblyReference.cache
+C:\Users\USUARIO\GRAFICA\VividVista\obj\Debug\VividVista.MainWindow.resources
+C:\Users\USUARIO\GRAFICA\VividVista\obj\Debug\VividVista.Properties.Resources.resources
+C:\Users\USUARIO\GRAFICA\VividVista\obj\Debug\VividVista.AppResources.resources
+C:\Users\USUARIO\GRAFICA\VividVista\obj\Debug\VividVista.csproj.GenerateResource.cache
+C:\Users\USUARIO\GRAFICA\VividVista\obj\Debug\VividVista.csproj.CoreCompileInputs.cache
+C:\Users\USUARIO\GRAFICA\VividVista\obj\Debug\VividVista.exe
+C:\Users\USUARIO\GRAFICA\VividVista\obj\Debug\VividVista.pdb
