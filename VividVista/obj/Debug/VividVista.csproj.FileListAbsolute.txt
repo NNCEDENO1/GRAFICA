@@ -9,3 +9,14 @@ C:\Users\gamur\source\repos\VividVista\obj\Debug\VividVista.exe
 C:\Users\gamur\source\repos\VividVista\obj\Debug\VividVista.pdb
 C:\Users\gamur\source\repos\VividVista\obj\Debug\VividVista.MainWindow.resources
 C:\Users\gamur\source\repos\VividVista\obj\Debug\VividVista.AppResources.resources
+C:\Users\lilit\Desktop\PROYECTOP2\GRAFICA\VividVista\bin\Debug\VividVista.exe.config
+C:\Users\lilit\Desktop\PROYECTOP2\GRAFICA\VividVista\bin\Debug\VividVista.exe
+C:\Users\lilit\Desktop\PROYECTOP2\GRAFICA\VividVista\bin\Debug\VividVista.pdb
+C:\Users\lilit\Desktop\PROYECTOP2\GRAFICA\VividVista\obj\Debug\VividVista.csproj.AssemblyReference.cache
+C:\Users\lilit\Desktop\PROYECTOP2\GRAFICA\VividVista\obj\Debug\VividVista.MainWindow.resources
+C:\Users\lilit\Desktop\PROYECTOP2\GRAFICA\VividVista\obj\Debug\VividVista.Properties.Resources.resources
+C:\Users\lilit\Desktop\PROYECTOP2\GRAFICA\VividVista\obj\Debug\VividVista.AppResources.resources
+C:\Users\lilit\Desktop\PROYECTOP2\GRAFICA\VividVista\obj\Debug\VividVista.csproj.GenerateResource.cache
+C:\Users\lilit\Desktop\PROYECTOP2\GRAFICA\VividVista\obj\Debug\VividVista.csproj.CoreCompileInputs.cache
+C:\Users\lilit\Desktop\PROYECTOP2\GRAFICA\VividVista\obj\Debug\VividVista.exe
+C:\Users\lilit\Desktop\PROYECTOP2\GRAFICA\VividVista\obj\Debug\VividVista.pdb

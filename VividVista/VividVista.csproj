@@ -104,6 +104,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="AppResources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -124,6 +125,264 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Icons\pencil-pointer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-flecha-responder-24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-forward-arrow-24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-rectangular-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-rayo-50.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-heart-26.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mensajeria-en-la-nube.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-capas-16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\estrella-de-los-vientos.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-cambiar-el-tamaño-16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-girar-a-la-izquierda-16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-regla-16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-captura-de-pantalla-16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\klipartz.com.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-cuadro-de-texto-16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-gira-a-la-derecha-16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-no-rotation-16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-no-image-16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cuadro-de-dialogo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-invertir-colores-16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-flecha-50.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-dashed-line-50.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-acercar-50.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-círculo-rgb-1-50.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-polygon-80 %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-rotate-80.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-pencil %281%29.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-rombo-24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\triangulo-rectangulo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-color-de-relleno-50.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-cuadrilátero-irregular-50.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-triángulo-16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-alinear-al-centro-50.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-curve-64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-add-text-50.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-pentagon-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-align-right-50.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-alinear-a-la-izquierda-50.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-subrayar-50.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-cursiva-50.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-negrita-50.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-dribbble-26.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-color-de-texto-50.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-paleta-de-pintura-con-pincel-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-flecha-responder-241.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-forward-arrow-241.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-rectangular-321.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-rayo-501.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-heart-261.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mensajeria-en-la-nube1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-capas-161.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\estrella-de-los-vientos1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-cambiar-el-tamaño-161.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-girar-a-la-izquierda-161.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-regla-161.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-captura-de-pantalla-161.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\klipartz.com1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-cuadro-de-texto-161.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-gira-a-la-derecha-161.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-no-rotation-161.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-no-image-161.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cuadro-de-dialogo1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-invertir-colores-161.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-flecha-501.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-dashed-line-501.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-acercar-501.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-círculo-rgb-1-501.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-polygon-80 %281%291.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-rotate-801.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-pencil %281%291.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-rombo-241.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\triangulo-rectangulo1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-color-de-relleno-501.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-cuadrilátero-irregular-501.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-triángulo-161.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-alinear-al-centro-501.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-curve-641.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-add-text-501.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-pentagon-481.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-align-right-501.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-alinear-a-la-izquierda-501.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-subrayar-501.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-cursiva-501.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-negrita-501.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-dribbble-261.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-color-de-texto-501.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-paleta-de-pintura-con-pincel-321.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

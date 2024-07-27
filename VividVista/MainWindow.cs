@@ -133,5 +133,10 @@ namespace VividVista
             float yRatio = 1f * pic.Image.Height / pic.Height;
             return new Point((int)(pt.X * xRatio), (int)(pt.Y * yRatio));
         }
+
+        private void picCanvas_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
