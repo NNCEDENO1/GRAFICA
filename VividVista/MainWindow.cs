@@ -84,12 +84,12 @@ namespace VividVista
                 {
                     toolManager.Draw(g, lastPoint, e.Location);
                 }
-                picCanvas.Invalidate();
+                picCanvas.Invalidate(); // Asegúrate de que el canvas se vuelva a dibujar
                 lastPoint = e.Location;
             }
-            
         }
-        
+
+
 
 
 
@@ -133,10 +133,11 @@ namespace VividVista
                 toolManager = new ToolManager();
             }
 
-            toolManager.SetCurrentTool(new Eraser(10f)); //
+            toolManager.SetCurrentTool(new Eraser(10f));
             picCanvas.Cursor = toolManager.GetCurrentCursor();
             pencilSelected = false;
         }
+
 
         private Point set_point(PictureBox pic, Point pt)
         {
