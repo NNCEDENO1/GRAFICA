@@ -39,6 +39,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.grpSlection = new System.Windows.Forms.GroupBox();
@@ -47,7 +48,7 @@
             this.grpTools = new System.Windows.Forms.GroupBox();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.eraserBox = new System.Windows.Forms.PictureBox();
             this.textBox = new System.Windows.Forms.PictureBox();
             this.fillBox = new System.Windows.Forms.PictureBox();
             this.pencilBox = new System.Windows.Forms.PictureBox();
@@ -70,17 +71,20 @@
             this.propertiesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutUsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.menuStrip2 = new System.Windows.Forms.MenuStrip();
             this.tableLayoutPanel1.SuspendLayout();
             this.grpSlection.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.grpTools.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.eraserBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fillBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pencilBox)).BeginInit();
             this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.footerPanel.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picCanvas)).BeginInit();
@@ -149,7 +153,7 @@
             // 
             this.grpTools.Controls.Add(this.pictureBox6);
             this.grpTools.Controls.Add(this.pictureBox4);
-            this.grpTools.Controls.Add(this.pictureBox5);
+            this.grpTools.Controls.Add(this.eraserBox);
             this.grpTools.Controls.Add(this.textBox);
             this.grpTools.Controls.Add(this.fillBox);
             this.grpTools.Controls.Add(this.pencilBox);
@@ -185,16 +189,17 @@
             this.pictureBox4.TabStop = false;
             this.pictureBox4.Click += new System.EventHandler(this.pictureBox4_Click);
             // 
-            // pictureBox5
+            // eraserBox
             // 
-            this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
-            this.pictureBox5.Location = new System.Drawing.Point(4, 63);
-            this.pictureBox5.Margin = new System.Windows.Forms.Padding(2);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(43, 41);
-            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox5.TabIndex = 3;
-            this.pictureBox5.TabStop = false;
+            this.eraserBox.Image = ((System.Drawing.Image)(resources.GetObject("eraserBox.Image")));
+            this.eraserBox.Location = new System.Drawing.Point(4, 63);
+            this.eraserBox.Margin = new System.Windows.Forms.Padding(2);
+            this.eraserBox.Name = "eraserBox";
+            this.eraserBox.Size = new System.Drawing.Size(43, 41);
+            this.eraserBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.eraserBox.TabIndex = 3;
+            this.eraserBox.TabStop = false;
+            this.eraserBox.Click += new System.EventHandler(this.eraserBox_Click);
             // 
             // textBox
             // 
@@ -222,7 +227,7 @@
             // pencilBox
             // 
             this.pencilBox.Image = ((System.Drawing.Image)(resources.GetObject("pencilBox.Image")));
-            this.pencilBox.Location = new System.Drawing.Point(4, 17);
+            this.pencilBox.Location = new System.Drawing.Point(0, 18);
             this.pencilBox.Margin = new System.Windows.Forms.Padding(2);
             this.pencilBox.Name = "pencilBox";
             this.pencilBox.Size = new System.Drawing.Size(43, 41);
@@ -245,6 +250,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.menuStrip2);
             this.groupBox2.Location = new System.Drawing.Point(453, 2);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox2.Name = "groupBox2";
@@ -401,6 +407,20 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
+            // imageList1
+            // 
+            this.imageList1.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
+            this.imageList1.ImageSize = new System.Drawing.Size(16, 16);
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            // 
+            // menuStrip2
+            // 
+            this.menuStrip2.Location = new System.Drawing.Point(2, 15);
+            this.menuStrip2.Name = "menuStrip2";
+            this.menuStrip2.Size = new System.Drawing.Size(306, 24);
+            this.menuStrip2.TabIndex = 0;
+            this.menuStrip2.Text = "menuStrip2";
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -426,11 +446,13 @@
             this.grpTools.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.eraserBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fillBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pencilBox)).EndInit();
             this.groupBox1.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.footerPanel.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -467,7 +489,7 @@
         private System.Windows.Forms.GroupBox grpTools;
         private System.Windows.Forms.PictureBox pictureBox6;
         private System.Windows.Forms.PictureBox pictureBox4;
-        private System.Windows.Forms.PictureBox pictureBox5;
+        private System.Windows.Forms.PictureBox eraserBox;
         private System.Windows.Forms.PictureBox textBox;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
@@ -477,6 +499,8 @@
         private System.Windows.Forms.ToolStripMenuItem aboutUsToolStripMenuItem;
         private System.Windows.Forms.PictureBox pictureBox1;
         public System.Windows.Forms.PictureBox fillBox;
+        private System.Windows.Forms.MenuStrip menuStrip2;
+        private System.Windows.Forms.ImageList imageList1;
     }
 }
 
