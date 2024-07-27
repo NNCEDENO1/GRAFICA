@@ -126,6 +126,17 @@ namespace VividVista
             picCanvas.Cursor = toolManager.GetCurrentCursor();
             pencilSelected = false;
         }
+        private void eraserBox_Click(object sender, EventArgs e)
+        {
+            if (toolManager == null)
+            {
+                toolManager = new ToolManager();
+            }
+
+            toolManager.SetCurrentTool(new Eraser(10f)); //
+            picCanvas.Cursor = toolManager.GetCurrentCursor();
+            pencilSelected = false;
+        }
 
         private Point set_point(PictureBox pic, Point pt)
         {
@@ -135,6 +146,16 @@ namespace VividVista
         }
 
         private void picCanvas_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox4_Click(object sender, EventArgs e)
         {
 
         }

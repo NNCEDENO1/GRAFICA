@@ -39,6 +39,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.grpSlection = new System.Windows.Forms.GroupBox();
@@ -47,7 +48,7 @@
             this.grpTools = new System.Windows.Forms.GroupBox();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.eraserBox = new System.Windows.Forms.PictureBox();
             this.textBox = new System.Windows.Forms.PictureBox();
             this.fillBox = new System.Windows.Forms.PictureBox();
             this.pencilBox = new System.Windows.Forms.PictureBox();
@@ -66,21 +67,30 @@
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.propertiesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aboutUsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.menuStrip2 = new System.Windows.Forms.MenuStrip();
             this.tableLayoutPanel1.SuspendLayout();
             this.grpSlection.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.grpTools.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.eraserBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fillBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pencilBox)).BeginInit();
+            this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.footerPanel.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picCanvas)).BeginInit();
             this.statusStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -100,7 +110,7 @@
             this.tableLayoutPanel1.Controls.Add(this.groupBox2, 4, 0);
             this.tableLayoutPanel1.Controls.Add(this.groupBox3, 5, 0);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 28);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(2);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -111,9 +121,9 @@
             // 
             this.grpSlection.Controls.Add(this.pictureBox2);
             this.grpSlection.Location = new System.Drawing.Point(2, 2);
-            this.grpSlection.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.grpSlection.Margin = new System.Windows.Forms.Padding(2);
             this.grpSlection.Name = "grpSlection";
-            this.grpSlection.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.grpSlection.Padding = new System.Windows.Forms.Padding(2);
             this.grpSlection.Size = new System.Drawing.Size(76, 118);
             this.grpSlection.TabIndex = 7;
             this.grpSlection.TabStop = false;
@@ -122,7 +132,7 @@
             // pictureBox2
             // 
             this.pictureBox2.Location = new System.Drawing.Point(0, 17);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(72, 71);
             this.pictureBox2.TabIndex = 5;
@@ -131,9 +141,9 @@
             // grpImage
             // 
             this.grpImage.Location = new System.Drawing.Point(83, 2);
-            this.grpImage.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.grpImage.Margin = new System.Windows.Forms.Padding(2);
             this.grpImage.Name = "grpImage";
-            this.grpImage.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.grpImage.Padding = new System.Windows.Forms.Padding(2);
             this.grpImage.Size = new System.Drawing.Size(140, 118);
             this.grpImage.TabIndex = 8;
             this.grpImage.TabStop = false;
@@ -143,14 +153,14 @@
             // 
             this.grpTools.Controls.Add(this.pictureBox6);
             this.grpTools.Controls.Add(this.pictureBox4);
-            this.grpTools.Controls.Add(this.pictureBox5);
+            this.grpTools.Controls.Add(this.eraserBox);
             this.grpTools.Controls.Add(this.textBox);
             this.grpTools.Controls.Add(this.fillBox);
             this.grpTools.Controls.Add(this.pencilBox);
             this.grpTools.Location = new System.Drawing.Point(228, 2);
-            this.grpTools.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.grpTools.Margin = new System.Windows.Forms.Padding(2);
             this.grpTools.Name = "grpTools";
-            this.grpTools.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.grpTools.Padding = new System.Windows.Forms.Padding(2);
             this.grpTools.Size = new System.Drawing.Size(144, 118);
             this.grpTools.TabIndex = 9;
             this.grpTools.TabStop = false;
@@ -158,46 +168,58 @@
             // 
             // pictureBox6
             // 
+            this.pictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox6.Image")));
             this.pictureBox6.Location = new System.Drawing.Point(99, 63);
-            this.pictureBox6.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox6.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox6.Name = "pictureBox6";
             this.pictureBox6.Size = new System.Drawing.Size(43, 41);
+            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox6.TabIndex = 5;
             this.pictureBox6.TabStop = false;
             // 
             // pictureBox4
             // 
+            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
             this.pictureBox4.Location = new System.Drawing.Point(52, 63);
-            this.pictureBox4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox4.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(43, 41);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox4.TabIndex = 4;
             this.pictureBox4.TabStop = false;
+            this.pictureBox4.Click += new System.EventHandler(this.pictureBox4_Click);
             // 
-            // pictureBox5
+            // eraserBox
             // 
-            this.pictureBox5.Location = new System.Drawing.Point(4, 63);
-            this.pictureBox5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(43, 41);
-            this.pictureBox5.TabIndex = 3;
-            this.pictureBox5.TabStop = false;
+            this.eraserBox.Image = ((System.Drawing.Image)(resources.GetObject("eraserBox.Image")));
+            this.eraserBox.Location = new System.Drawing.Point(4, 63);
+            this.eraserBox.Margin = new System.Windows.Forms.Padding(2);
+            this.eraserBox.Name = "eraserBox";
+            this.eraserBox.Size = new System.Drawing.Size(43, 41);
+            this.eraserBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.eraserBox.TabIndex = 3;
+            this.eraserBox.TabStop = false;
+            this.eraserBox.Click += new System.EventHandler(this.eraserBox_Click);
             // 
             // textBox
             // 
+            this.textBox.Image = ((System.Drawing.Image)(resources.GetObject("textBox.Image")));
             this.textBox.Location = new System.Drawing.Point(99, 17);
-            this.textBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox.Margin = new System.Windows.Forms.Padding(2);
             this.textBox.Name = "textBox";
             this.textBox.Size = new System.Drawing.Size(43, 41);
+            this.textBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.textBox.TabIndex = 2;
             this.textBox.TabStop = false;
             // 
             // fillBox
             // 
+            this.fillBox.Image = ((System.Drawing.Image)(resources.GetObject("fillBox.Image")));
             this.fillBox.Location = new System.Drawing.Point(52, 17);
-            this.fillBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.fillBox.Margin = new System.Windows.Forms.Padding(0);
             this.fillBox.Name = "fillBox";
             this.fillBox.Size = new System.Drawing.Size(43, 41);
+            this.fillBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.fillBox.TabIndex = 1;
             this.fillBox.TabStop = false;
             this.fillBox.Click += new System.EventHandler(this.FillBox_Click);
@@ -205,8 +227,8 @@
             // pencilBox
             // 
             this.pencilBox.Image = ((System.Drawing.Image)(resources.GetObject("pencilBox.Image")));
-            this.pencilBox.Location = new System.Drawing.Point(4, 17);
-            this.pencilBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pencilBox.Location = new System.Drawing.Point(0, 18);
+            this.pencilBox.Margin = new System.Windows.Forms.Padding(2);
             this.pencilBox.Name = "pencilBox";
             this.pencilBox.Size = new System.Drawing.Size(43, 41);
             this.pencilBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -216,10 +238,11 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.pictureBox1);
             this.groupBox1.Location = new System.Drawing.Point(376, 2);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox1.Size = new System.Drawing.Size(72, 118);
             this.groupBox1.TabIndex = 10;
             this.groupBox1.TabStop = false;
@@ -227,10 +250,11 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.menuStrip2);
             this.groupBox2.Location = new System.Drawing.Point(453, 2);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox2.Size = new System.Drawing.Size(310, 118);
             this.groupBox2.TabIndex = 11;
             this.groupBox2.TabStop = false;
@@ -239,9 +263,9 @@
             // groupBox3
             // 
             this.groupBox3.Location = new System.Drawing.Point(768, 2);
-            this.groupBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox3.Size = new System.Drawing.Size(258, 116);
             this.groupBox3.TabIndex = 12;
             this.groupBox3.TabStop = false;
@@ -253,7 +277,7 @@
             this.footerPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(247)))), ((int)(((byte)(249)))));
             this.footerPanel.Controls.Add(this.panel1);
             this.footerPanel.Location = new System.Drawing.Point(2, 522);
-            this.footerPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.footerPanel.Margin = new System.Windows.Forms.Padding(2);
             this.footerPanel.Name = "footerPanel";
             this.footerPanel.Size = new System.Drawing.Size(1434, 42);
             this.footerPanel.TabIndex = 1;
@@ -263,7 +287,7 @@
             this.panel1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel1.Controls.Add(this.lblCursorPosition);
             this.panel1.Location = new System.Drawing.Point(2, 2);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(208, 32);
             this.panel1.TabIndex = 0;
@@ -285,7 +309,7 @@
             this.picCanvas.BackColor = System.Drawing.SystemColors.Window;
             this.picCanvas.Image = global::VividVista.Properties.Resources.icons8_paleta_de_pintura_con_pincel_321;
             this.picCanvas.Location = new System.Drawing.Point(571, 171);
-            this.picCanvas.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.picCanvas.Margin = new System.Windows.Forms.Padding(2);
             this.picCanvas.Name = "picCanvas";
             this.picCanvas.Size = new System.Drawing.Size(476, 387);
             this.picCanvas.TabIndex = 2;
@@ -330,15 +354,19 @@
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.openToolStripMenuItem});
+            this.openToolStripMenuItem,
+            this.newToolStripMenuItem,
+            this.propertiesToolStripMenuItem,
+            this.aboutUsToolStripMenuItem});
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
             this.toolStripMenuItem1.Size = new System.Drawing.Size(37, 20);
             this.toolStripMenuItem1.Text = "File";
+            this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
             // 
             // openToolStripMenuItem
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.openToolStripMenuItem.Text = "Open";
             // 
             // toolStripMenuItem2
@@ -353,6 +381,46 @@
             this.toolStripMenuItem3.Size = new System.Drawing.Size(44, 20);
             this.toolStripMenuItem3.Text = "View";
             // 
+            // newToolStripMenuItem
+            // 
+            this.newToolStripMenuItem.Name = "newToolStripMenuItem";
+            this.newToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.newToolStripMenuItem.Text = "New";
+            // 
+            // propertiesToolStripMenuItem
+            // 
+            this.propertiesToolStripMenuItem.Name = "propertiesToolStripMenuItem";
+            this.propertiesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.propertiesToolStripMenuItem.Text = "Properties";
+            // 
+            // aboutUsToolStripMenuItem
+            // 
+            this.aboutUsToolStripMenuItem.Name = "aboutUsToolStripMenuItem";
+            this.aboutUsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.aboutUsToolStripMenuItem.Text = "About us";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(5, 18);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(49, 40);
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
+            // imageList1
+            // 
+            this.imageList1.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
+            this.imageList1.ImageSize = new System.Drawing.Size(16, 16);
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            // 
+            // menuStrip2
+            // 
+            this.menuStrip2.Location = new System.Drawing.Point(2, 15);
+            this.menuStrip2.Name = "menuStrip2";
+            this.menuStrip2.Size = new System.Drawing.Size(306, 24);
+            this.menuStrip2.TabIndex = 0;
+            this.menuStrip2.Text = "menuStrip2";
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -363,8 +431,10 @@
             this.Controls.Add(this.picCanvas);
             this.Controls.Add(this.footerPanel);
             this.Controls.Add(this.tableLayoutPanel1);
+            this.ForeColor = System.Drawing.Color.Transparent;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximumSize = new System.Drawing.Size(1444, 885);
             this.Name = "MainWindow";
             this.Text = "VividVista";
@@ -376,10 +446,13 @@
             this.grpTools.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.eraserBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fillBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pencilBox)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.footerPanel.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -388,6 +461,7 @@
             this.statusStrip1.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -409,18 +483,24 @@
         private System.Windows.Forms.ToolStripMenuItem openToolStripMenuItem;
         private System.Windows.Forms.PictureBox pencilBox;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.PictureBox fillBox;
         private System.Windows.Forms.GroupBox grpSlection;
         private System.Windows.Forms.GroupBox grpImage;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.GroupBox grpTools;
         private System.Windows.Forms.PictureBox pictureBox6;
         private System.Windows.Forms.PictureBox pictureBox4;
-        private System.Windows.Forms.PictureBox pictureBox5;
+        private System.Windows.Forms.PictureBox eraserBox;
         private System.Windows.Forms.PictureBox textBox;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.ToolStripMenuItem newToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem propertiesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem aboutUsToolStripMenuItem;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        public System.Windows.Forms.PictureBox fillBox;
+        private System.Windows.Forms.MenuStrip menuStrip2;
+        private System.Windows.Forms.ImageList imageList1;
     }
 }
 
