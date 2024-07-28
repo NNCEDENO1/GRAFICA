@@ -23,7 +23,9 @@ namespace VividVista
         private FigurePaint figures;
         private string shapeType;
         private BrushDraw brushes;
-        private string currentBrush; 
+        private string currentBrush;
+        private string currentTool;
+
 
 
         public MainWindow()
@@ -95,48 +97,42 @@ namespace VividVista
             {
                 using (Graphics g = Graphics.FromImage(drawingBitmap))
                 {
-                    switch (currentBrush)
-                    {
-                        case "Oleo":
-                            brushes.DrawOilBrush(g, lastPoint, e.Location);
-                            break;
-                        case "Aerografo":
-                            brushes.DrawAirBrush(g, lastPoint, e.Location);
-                            break;
-                        case "Acuarela":
-                            brushes.DrawWaterColorBrush(g, lastPoint, e.Location);
-                            break;
-                        case "Crayon":
-                            brushes.DrawCrayonBrush(g, lastPoint, e.Location);
-                            break;
-                        case "Marcador":
-                            brushes.DrawMarkerBrush(g, lastPoint, e.Location);
-                            break;
-                        case "Caligrafia":
-                            brushes.DrawCalligraphyBrush(g, lastPoint, e.Location);
-                            break;
-                        case "Lapiz":
-                            brushes.DrawPencilBrush(g, lastPoint, e.Location);
-                            break;
-                    }
-                }
-                lastPoint = e.Location;
-                picCanvas.Invalidate();
-            
-        }
-            if (isDrawing && drawingBitmap != null)
-            {
-                using (Graphics g = Graphics.FromImage(drawingBitmap))
-                {
-                    if (toolManager.GetCurrentTool() is Pencil)
+                    if (currentTool == "Pencil")
                     {
                         toolManager.Draw(g, lastPoint, e.Location);
                     }
-                    else if (toolManager.GetCurrentTool() is Eraser)
+                    else if (currentTool == "Eraser")
                     {
                         using (Brush brush = new SolidBrush(picCanvas.BackColor))
                         {
                             g.FillRectangle(brush, e.X, e.Y, 10, 10); // Ajusta el tamaño según sea necesario
+                        }
+                    }
+                    else
+                    {
+                        switch (currentBrush)
+                        {
+                            case "Oleo":
+                                brushes.DrawOilBrush(g, lastPoint, e.Location);
+                                break;
+                            case "Aerografo":
+                                brushes.DrawAirBrush(g, lastPoint, e.Location);
+                                break;
+                            case "Acuarela":
+                                brushes.DrawWaterColorBrush(g, lastPoint, e.Location);
+                                break;
+                            case "Crayon":
+                                brushes.DrawCrayonBrush(g, lastPoint, e.Location);
+                                break;
+                            case "Marcador":
+                                brushes.DrawMarkerBrush(g, lastPoint, e.Location);
+                                break;
+                            case "Caligrafia":
+                                brushes.DrawCalligraphyBrush(g, lastPoint, e.Location);
+                                break;
+                            case "Lapiz":
+                                brushes.DrawBrush(g, lastPoint, e.Location);
+                                break;
                         }
                     }
                 }
@@ -144,6 +140,7 @@ namespace VividVista
                 picCanvas.Invalidate();
             }
         }
+
         private void PicCanvas_MouseUp(object sender, MouseEventArgs e)
         {
             if (isDrawing)
@@ -200,7 +197,8 @@ namespace VividVista
 
             toolManager.SetCurrentTool(new Pencil(Color.Black, 1f));
             picCanvas.Cursor = toolManager.GetCurrentCursor();
-            pencilSelected = true;
+            currentTool = "Pencil";
+            currentBrush = null;
         }
 
         private void FillBox_Click(object sender, EventArgs e)
@@ -212,7 +210,8 @@ namespace VividVista
 
             toolManager.SetCurrentTool(new FillTool(Color.Red)); // Puedes cambiar el color según tu necesidad
             picCanvas.Cursor = toolManager.GetCurrentCursor();
-            pencilSelected = false;
+            currentTool = null;
+            currentBrush = null;
         }
         private void eraserBox_Click(object sender, EventArgs e)
         {
@@ -223,7 +222,8 @@ namespace VividVista
 
             toolManager.SetCurrentTool(new Eraser(10f));
             picCanvas.Cursor = toolManager.GetCurrentCursor();
-            pencilSelected = false;
+            currentTool = "Eraser";
+            currentBrush = null;
         }
 
 
@@ -333,48 +333,56 @@ namespace VividVista
         {
             currentBrush = "Pincel";
             picCanvas.Cursor = Cursors.Cross;
+            currentTool = null;
         }
 
         private void caligraficoBox_Click(object sender, EventArgs e)
         {
             currentBrush = "Caligrafia";
             picCanvas.Cursor = Cursors.Cross;
+            currentTool = null;
         }
 
         private void aerografoBox_Click(object sender, EventArgs e)
         {
             currentBrush = "Aerografo";
             picCanvas.Cursor = Cursors.Cross;
+            currentTool = null;
         }
 
         private void oleoBox_Click(object sender, EventArgs e)
         {
             currentBrush = "Oleo";
             picCanvas.Cursor = Cursors.Cross;
+            currentTool = null;
         }
 
         private void crayonBox_Click(object sender, EventArgs e)
         {
             currentBrush = "Crayon";
             picCanvas.Cursor = Cursors.Cross;
+            currentTool = null;
         }
 
         private void marcadorBox_Click(object sender, EventArgs e)
         {
             currentBrush = "Marcador";
             picCanvas.Cursor = Cursors.Cross;
+            currentTool = null;
         }
 
         private void lapizPincelBox_Click(object sender, EventArgs e)
         {
             currentBrush = "Lapiz";
             picCanvas.Cursor = Cursors.Cross;
+            currentTool = null;
         }
 
         private void acuarelaBox_Click(object sender, EventArgs e)
         {
             currentBrush = "Acuarela";
             picCanvas.Cursor = Cursors.Cross;
+            currentTool = null;
         }
     }
 }

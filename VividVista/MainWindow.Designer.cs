@@ -719,8 +719,8 @@
             // jPGToolStripMenuItem
             // 
             this.jPGToolStripMenuItem.Name = "jPGToolStripMenuItem";
-            this.jPGToolStripMenuItem.Size = new System.Drawing.Size(98, 22);
-            this.jPGToolStripMenuItem.Text = "JPG";
+            this.jPGToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.jPGToolStripMenuItem.Text = "JPEG";
             this.jPGToolStripMenuItem.Click += new System.EventHandler(this.jPGToolStripMenuItem_Click);
             // 
             // imageList1
