@@ -67,6 +67,20 @@ namespace VividVista
                 isDrawing = true;
                 lastPoint = e.Location;
             }
+            if (toolManager.GetCurrentTool() is Eraser && e.Button == MouseButtons.Left)
+            {
+                isDrawing = true; // Comienza a dibujar con el borrador
+                lastPoint = e.Location;
+            }
+            else if (toolManager.GetCurrentTool() is TextTool textTool && e.Button == MouseButtons.Left)
+            {
+                textTool.CreateTextBox(picCanvas, e.Location); // Crea un TextBox para el texto
+            }
+            else if (pencilSelected && e.Button == MouseButtons.Left)
+            {
+                isDrawing = true;
+                lastPoint = e.Location;
+            }
         }
 
 
@@ -139,6 +153,7 @@ namespace VividVista
         }
 
 
+
         private Point set_point(PictureBox pic, Point pt)
         {
             float xRatio = 1f * pic.Image.Width / pic.Width;
@@ -164,6 +179,19 @@ namespace VividVista
         private void pictureBox11_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void textBox_Click(object sender, EventArgs e)
+        {
+            if (toolManager == null)
+            {
+                toolManager = new ToolManager();
+            }
+
+            Font defaultFont = new Font("Arial", 12);
+            Color defaultColor = Color.Black;
+            toolManager.SetCurrentTool(new TextTool(defaultFont, defaultColor));
+            picCanvas.Cursor = toolManager.GetCurrentCursor();
         }
     }
 }
