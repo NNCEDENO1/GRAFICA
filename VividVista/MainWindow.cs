@@ -6,6 +6,8 @@ using VividVista.Properties;
 using VividVista.Tools;
 using VividVista.Figures;
 using System.Drawing.Imaging;
+using VividVista.Brushes;
+
 
 
 namespace VividVista
@@ -20,6 +22,9 @@ namespace VividVista
         private Timer cursorPositionTimer;
         private FigurePaint figures;
         private string shapeType;
+        private BrushDraw brushes;
+        private string currentBrush; 
+
 
         public MainWindow()
         {
@@ -27,6 +32,7 @@ namespace VividVista
             InitializeDrawingBitmap();
             toolManager = new ToolManager();
             figures = new FigurePaint(Color.Black, 1f);
+            brushes = new BrushDraw();
 
             cursorPositionTimer = new Timer();
             cursorPositionTimer.Interval = 1;
@@ -85,6 +91,39 @@ namespace VividVista
 
         private void PicCanvas_MouseMove(object sender, MouseEventArgs e)
         {
+            if (isDrawing && drawingBitmap != null)
+            {
+                using (Graphics g = Graphics.FromImage(drawingBitmap))
+                {
+                    switch (currentBrush)
+                    {
+                        case "Oleo":
+                            brushes.DrawOilBrush(g, lastPoint, e.Location);
+                            break;
+                        case "Aerografo":
+                            brushes.DrawAirBrush(g, lastPoint, e.Location);
+                            break;
+                        case "Acuarela":
+                            brushes.DrawWaterColorBrush(g, lastPoint, e.Location);
+                            break;
+                        case "Crayon":
+                            brushes.DrawCrayonBrush(g, lastPoint, e.Location);
+                            break;
+                        case "Marcador":
+                            brushes.DrawMarkerBrush(g, lastPoint, e.Location);
+                            break;
+                        case "Caligrafia":
+                            brushes.DrawCalligraphyBrush(g, lastPoint, e.Location);
+                            break;
+                        case "Lapiz":
+                            brushes.DrawPencilBrush(g, lastPoint, e.Location);
+                            break;
+                    }
+                }
+                lastPoint = e.Location;
+                picCanvas.Invalidate();
+            
+        }
             if (isDrawing && drawingBitmap != null)
             {
                 using (Graphics g = Graphics.FromImage(drawingBitmap))
@@ -284,6 +323,58 @@ namespace VividVista
                     drawingBitmap.Save(saveFileDialog.FileName, imgFormat);
                 }
             }
+        }
+
+        private void pictureBox6_Click(object sender, EventArgs e)
+        {
+                    }
+
+        private void pincelBox_Click(object sender, EventArgs e)
+        {
+            currentBrush = "Pincel";
+            picCanvas.Cursor = Cursors.Cross;
+        }
+
+        private void caligraficoBox_Click(object sender, EventArgs e)
+        {
+            currentBrush = "Caligrafia";
+            picCanvas.Cursor = Cursors.Cross;
+        }
+
+        private void aerografoBox_Click(object sender, EventArgs e)
+        {
+            currentBrush = "Aerografo";
+            picCanvas.Cursor = Cursors.Cross;
+        }
+
+        private void oleoBox_Click(object sender, EventArgs e)
+        {
+            currentBrush = "Oleo";
+            picCanvas.Cursor = Cursors.Cross;
+        }
+
+        private void crayonBox_Click(object sender, EventArgs e)
+        {
+            currentBrush = "Crayon";
+            picCanvas.Cursor = Cursors.Cross;
+        }
+
+        private void marcadorBox_Click(object sender, EventArgs e)
+        {
+            currentBrush = "Marcador";
+            picCanvas.Cursor = Cursors.Cross;
+        }
+
+        private void lapizPincelBox_Click(object sender, EventArgs e)
+        {
+            currentBrush = "Lapiz";
+            picCanvas.Cursor = Cursors.Cross;
+        }
+
+        private void acuarelaBox_Click(object sender, EventArgs e)
+        {
+            currentBrush = "Acuarela";
+            picCanvas.Cursor = Cursors.Cross;
         }
     }
 }

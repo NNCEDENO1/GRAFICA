@@ -46,7 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Brushes\Brush.cs" />
+    <Compile Include="Brushes\BrushDraw.cs" />
     <Compile Include="Brushes\CustomBrush.cs" />
     <Compile Include="Figures\Arrow.cs" />
     <Compile Include="Figures\EllipseFig.cs" />

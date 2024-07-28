@@ -53,7 +53,6 @@
             this.fillBox = new System.Windows.Forms.PictureBox();
             this.pencilBox = new System.Windows.Forms.PictureBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.pictureBox24 = new System.Windows.Forms.PictureBox();
             this.pictureBox23 = new System.Windows.Forms.PictureBox();
@@ -92,12 +91,20 @@
             this.aboutUsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
-            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
-            this.picCanvas = new System.Windows.Forms.PictureBox();
             this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pNGToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.jPGToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.picCanvas = new System.Windows.Forms.PictureBox();
+            this.pincelBox = new System.Windows.Forms.PictureBox();
+            this.caligraficoBox = new System.Windows.Forms.PictureBox();
+            this.aerografoBox = new System.Windows.Forms.PictureBox();
+            this.marcadorBox = new System.Windows.Forms.PictureBox();
+            this.crayonBox = new System.Windows.Forms.PictureBox();
+            this.acuarelaBox = new System.Windows.Forms.PictureBox();
+            this.lapizPincelBox = new System.Windows.Forms.PictureBox();
+            this.oleoBox = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.grpSlection.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -109,7 +116,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.fillBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pencilBox)).BeginInit();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox24)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox23)).BeginInit();
@@ -138,6 +144,14 @@
             this.statusStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picCanvas)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pincelBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.caligraficoBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.aerografoBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.marcadorBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.crayonBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.acuarelaBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lapizPincelBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.oleoBox)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -286,7 +300,14 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.pictureBox1);
+            this.groupBox1.Controls.Add(this.oleoBox);
+            this.groupBox1.Controls.Add(this.lapizPincelBox);
+            this.groupBox1.Controls.Add(this.acuarelaBox);
+            this.groupBox1.Controls.Add(this.crayonBox);
+            this.groupBox1.Controls.Add(this.marcadorBox);
+            this.groupBox1.Controls.Add(this.aerografoBox);
+            this.groupBox1.Controls.Add(this.caligraficoBox);
+            this.groupBox1.Controls.Add(this.pincelBox);
             this.groupBox1.Location = new System.Drawing.Point(376, 2);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
@@ -295,14 +316,6 @@
             this.groupBox1.TabIndex = 10;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Brushes";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Location = new System.Drawing.Point(5, 18);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(49, 40);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
             // 
             // groupBox2
             // 
@@ -654,25 +667,25 @@
             // openToolStripMenuItem
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
             this.openToolStripMenuItem.Text = "Open";
             // 
             // newToolStripMenuItem
             // 
             this.newToolStripMenuItem.Name = "newToolStripMenuItem";
-            this.newToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.newToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
             this.newToolStripMenuItem.Text = "New";
             // 
             // propertiesToolStripMenuItem
             // 
             this.propertiesToolStripMenuItem.Name = "propertiesToolStripMenuItem";
-            this.propertiesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.propertiesToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
             this.propertiesToolStripMenuItem.Text = "Properties";
             // 
             // aboutUsToolStripMenuItem
             // 
             this.aboutUsToolStripMenuItem.Name = "aboutUsToolStripMenuItem";
-            this.aboutUsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.aboutUsToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
             this.aboutUsToolStripMenuItem.Text = "About us";
             // 
             // toolStripMenuItem2
@@ -686,6 +699,29 @@
             this.toolStripMenuItem3.Name = "toolStripMenuItem3";
             this.toolStripMenuItem3.Size = new System.Drawing.Size(44, 20);
             this.toolStripMenuItem3.Text = "View";
+            // 
+            // saveToolStripMenuItem
+            // 
+            this.saveToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.pNGToolStripMenuItem,
+            this.jPGToolStripMenuItem});
+            this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(43, 20);
+            this.saveToolStripMenuItem.Text = "Save";
+            // 
+            // pNGToolStripMenuItem
+            // 
+            this.pNGToolStripMenuItem.Name = "pNGToolStripMenuItem";
+            this.pNGToolStripMenuItem.Size = new System.Drawing.Size(98, 22);
+            this.pNGToolStripMenuItem.Text = "PNG";
+            this.pNGToolStripMenuItem.Click += new System.EventHandler(this.pNGToolStripMenuItem_Click);
+            // 
+            // jPGToolStripMenuItem
+            // 
+            this.jPGToolStripMenuItem.Name = "jPGToolStripMenuItem";
+            this.jPGToolStripMenuItem.Size = new System.Drawing.Size(98, 22);
+            this.jPGToolStripMenuItem.Text = "JPG";
+            this.jPGToolStripMenuItem.Click += new System.EventHandler(this.jPGToolStripMenuItem_Click);
             // 
             // imageList1
             // 
@@ -709,28 +745,93 @@
             this.picCanvas.MouseMove += new System.Windows.Forms.MouseEventHandler(this.PicCanvas_MouseMove);
             this.picCanvas.MouseUp += new System.Windows.Forms.MouseEventHandler(this.PicCanvas_MouseUp);
             // 
-            // saveToolStripMenuItem
+            // pincelBox
             // 
-            this.saveToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.pNGToolStripMenuItem,
-            this.jPGToolStripMenuItem});
-            this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(43, 20);
-            this.saveToolStripMenuItem.Text = "Save";
+            this.pincelBox.Image = ((System.Drawing.Image)(resources.GetObject("pincelBox.Image")));
+            this.pincelBox.Location = new System.Drawing.Point(1, 18);
+            this.pincelBox.Name = "pincelBox";
+            this.pincelBox.Size = new System.Drawing.Size(24, 21);
+            this.pincelBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pincelBox.TabIndex = 23;
+            this.pincelBox.TabStop = false;
+            this.pincelBox.Click += new System.EventHandler(this.pincelBox_Click);
             // 
-            // pNGToolStripMenuItem
+            // caligraficoBox
             // 
-            this.pNGToolStripMenuItem.Name = "pNGToolStripMenuItem";
-            this.pNGToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.pNGToolStripMenuItem.Text = "PNG";
-            this.pNGToolStripMenuItem.Click += new System.EventHandler(this.pNGToolStripMenuItem_Click);
+            this.caligraficoBox.Image = ((System.Drawing.Image)(resources.GetObject("caligraficoBox.Image")));
+            this.caligraficoBox.Location = new System.Drawing.Point(35, 17);
+            this.caligraficoBox.Name = "caligraficoBox";
+            this.caligraficoBox.Size = new System.Drawing.Size(24, 21);
+            this.caligraficoBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.caligraficoBox.TabIndex = 24;
+            this.caligraficoBox.TabStop = false;
+            this.caligraficoBox.Click += new System.EventHandler(this.caligraficoBox_Click);
             // 
-            // jPGToolStripMenuItem
+            // aerografoBox
             // 
-            this.jPGToolStripMenuItem.Name = "jPGToolStripMenuItem";
-            this.jPGToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.jPGToolStripMenuItem.Text = "JPG";
-            this.jPGToolStripMenuItem.Click += new System.EventHandler(this.jPGToolStripMenuItem_Click);
+            this.aerografoBox.Image = ((System.Drawing.Image)(resources.GetObject("aerografoBox.Image")));
+            this.aerografoBox.Location = new System.Drawing.Point(1, 45);
+            this.aerografoBox.Name = "aerografoBox";
+            this.aerografoBox.Size = new System.Drawing.Size(24, 21);
+            this.aerografoBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.aerografoBox.TabIndex = 25;
+            this.aerografoBox.TabStop = false;
+            this.aerografoBox.Click += new System.EventHandler(this.aerografoBox_Click);
+            // 
+            // marcadorBox
+            // 
+            this.marcadorBox.Image = ((System.Drawing.Image)(resources.GetObject("marcadorBox.Image")));
+            this.marcadorBox.Location = new System.Drawing.Point(35, 68);
+            this.marcadorBox.Name = "marcadorBox";
+            this.marcadorBox.Size = new System.Drawing.Size(24, 21);
+            this.marcadorBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.marcadorBox.TabIndex = 26;
+            this.marcadorBox.TabStop = false;
+            this.marcadorBox.Click += new System.EventHandler(this.marcadorBox_Click);
+            // 
+            // crayonBox
+            // 
+            this.crayonBox.Image = ((System.Drawing.Image)(resources.GetObject("crayonBox.Image")));
+            this.crayonBox.Location = new System.Drawing.Point(1, 68);
+            this.crayonBox.Name = "crayonBox";
+            this.crayonBox.Size = new System.Drawing.Size(24, 21);
+            this.crayonBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.crayonBox.TabIndex = 27;
+            this.crayonBox.TabStop = false;
+            this.crayonBox.Click += new System.EventHandler(this.crayonBox_Click);
+            // 
+            // acuarelaBox
+            // 
+            this.acuarelaBox.Image = ((System.Drawing.Image)(resources.GetObject("acuarelaBox.Image")));
+            this.acuarelaBox.Location = new System.Drawing.Point(35, 97);
+            this.acuarelaBox.Name = "acuarelaBox";
+            this.acuarelaBox.Size = new System.Drawing.Size(24, 21);
+            this.acuarelaBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.acuarelaBox.TabIndex = 28;
+            this.acuarelaBox.TabStop = false;
+            this.acuarelaBox.Click += new System.EventHandler(this.acuarelaBox_Click);
+            // 
+            // lapizPincelBox
+            // 
+            this.lapizPincelBox.Image = ((System.Drawing.Image)(resources.GetObject("lapizPincelBox.Image")));
+            this.lapizPincelBox.Location = new System.Drawing.Point(5, 95);
+            this.lapizPincelBox.Name = "lapizPincelBox";
+            this.lapizPincelBox.Size = new System.Drawing.Size(24, 21);
+            this.lapizPincelBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.lapizPincelBox.TabIndex = 29;
+            this.lapizPincelBox.TabStop = false;
+            this.lapizPincelBox.Click += new System.EventHandler(this.lapizPincelBox_Click);
+            // 
+            // oleoBox
+            // 
+            this.oleoBox.Image = ((System.Drawing.Image)(resources.GetObject("oleoBox.Image")));
+            this.oleoBox.Location = new System.Drawing.Point(35, 45);
+            this.oleoBox.Name = "oleoBox";
+            this.oleoBox.Size = new System.Drawing.Size(24, 21);
+            this.oleoBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.oleoBox.TabIndex = 30;
+            this.oleoBox.TabStop = false;
+            this.oleoBox.Click += new System.EventHandler(this.oleoBox_Click);
             // 
             // MainWindow
             // 
@@ -762,7 +863,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.fillBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pencilBox)).EndInit();
             this.groupBox1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox24)).EndInit();
@@ -795,6 +895,14 @@
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picCanvas)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pincelBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.caligraficoBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.aerografoBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.marcadorBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.crayonBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.acuarelaBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lapizPincelBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.oleoBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -830,7 +938,6 @@
         private System.Windows.Forms.ToolStripMenuItem newToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem propertiesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutUsToolStripMenuItem;
-        private System.Windows.Forms.PictureBox pictureBox1;
         public System.Windows.Forms.PictureBox fillBox;
         private System.Windows.Forms.MenuStrip menuStrip2;
         private System.Windows.Forms.ImageList imageList1;
@@ -859,6 +966,14 @@
         private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem pNGToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem jPGToolStripMenuItem;
+        private System.Windows.Forms.PictureBox oleoBox;
+        private System.Windows.Forms.PictureBox lapizPincelBox;
+        private System.Windows.Forms.PictureBox acuarelaBox;
+        private System.Windows.Forms.PictureBox crayonBox;
+        private System.Windows.Forms.PictureBox marcadorBox;
+        private System.Windows.Forms.PictureBox aerografoBox;
+        private System.Windows.Forms.PictureBox caligraficoBox;
+        private System.Windows.Forms.PictureBox pincelBox;
     }
 }
 
