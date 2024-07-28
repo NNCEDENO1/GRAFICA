@@ -51,6 +51,7 @@
     <Compile Include="Figures\Arrow.cs" />
     <Compile Include="Figures\EllipseFig.cs" />
     <Compile Include="Figures\Figure.cs" />
+    <Compile Include="Figures\FigurePaint.cs" />
     <Compile Include="Figures\FreeHand.cs" />
     <Compile Include="Figures\Line.cs" />
     <Compile Include="Figures\Polygon.cs" />

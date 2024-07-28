@@ -4,10 +4,11 @@ using System.Windows.Forms;
 using System.IO;
 using VividVista.Properties;
 using VividVista.Tools;
+using VividVista.Figures;
 
 
 namespace VividVista
-{ 
+{
     public partial class MainWindow : Form
     {
         private ToolManager toolManager;
@@ -16,12 +17,15 @@ namespace VividVista
         private Bitmap drawingBitmap;
         private bool pencilSelected = false;
         private Timer cursorPositionTimer;
+        private FigurePaint figures;
+        private string shapeType;
 
         public MainWindow()
         {
             InitializeComponent();
             InitializeDrawingBitmap();
             toolManager = new ToolManager();
+            figures = new FigurePaint(Color.Black, 1f);
 
             cursorPositionTimer = new Timer();
             cursorPositionTimer.Interval = 1;
@@ -52,7 +56,7 @@ namespace VividVista
             {
                 MessageBox.Show("El tamaño del canvas es inválido.");
             }
-        }
+        }   
 
         private void CursorPositionTimer_Tick(object sender, EventArgs e)
         {
@@ -62,60 +66,86 @@ namespace VividVista
 
         private void PicCanvas_MouseDown(object sender, MouseEventArgs e)
         {
-            if (pencilSelected && e.Button == MouseButtons.Left)
+            if (e.Button == MouseButtons.Left)
             {
                 isDrawing = true;
                 lastPoint = e.Location;
-            }
-            if (toolManager.GetCurrentTool() is Eraser && e.Button == MouseButtons.Left)
-            {
-                isDrawing = true; // Comienza a dibujar con el borrador
-                lastPoint = e.Location;
-            }
-            else if (toolManager.GetCurrentTool() is TextTool textTool && e.Button == MouseButtons.Left)
-            {
-                textTool.CreateTextBox(picCanvas, e.Location); // Crea un TextBox para el texto
-            }
-            else if (pencilSelected && e.Button == MouseButtons.Left)
-            {
-                isDrawing = true;
-                lastPoint = e.Location;
+
+                if (toolManager.GetCurrentTool() is TextTool textTool)
+                {
+                    textTool.CreateTextBox(picCanvas, e.Location); // Crea un TextBox para el texto
+                }
             }
         }
-
 
         private void PicCanvas_MouseMove(object sender, MouseEventArgs e)
         {
-            if (toolManager == null)
-            {
-                MessageBox.Show("ToolManager no está inicializado.");
-                return;
-            }
-
-            if (isDrawing && drawingBitmap != null && toolManager.GetCurrentTool() != null)
+            if (isDrawing && drawingBitmap != null)
             {
                 using (Graphics g = Graphics.FromImage(drawingBitmap))
                 {
-                    toolManager.Draw(g, lastPoint, e.Location);
+                    if (toolManager.GetCurrentTool() is Pencil)
+                    {
+                        toolManager.Draw(g, lastPoint, e.Location);
+                    }
+                    else if (toolManager.GetCurrentTool() is Eraser)
+                    {
+                        using (Brush brush = new SolidBrush(picCanvas.BackColor))
+                        {
+                            g.FillRectangle(brush, e.X, e.Y, 10, 10); // Ajusta el tamaño según sea necesario
+                        }
+                    }
                 }
-                picCanvas.Invalidate(); // Asegúrate de que el canvas se vuelva a dibujar
                 lastPoint = e.Location;
+                picCanvas.Invalidate();
             }
         }
-
-
-
-
-
-
         private void PicCanvas_MouseUp(object sender, MouseEventArgs e)
         {
             if (isDrawing)
             {
                 isDrawing = false;
-                lastPoint = Point.Empty;
+                DrawShape(drawingBitmap, lastPoint, e.Location); // Dibuja la figura en el bitmap
+                picCanvas.Invalidate(); // Refresca el canvas
             }
         }
+
+        private void DrawShape(Bitmap bitmap, Point startPoint, Point endPoint)
+        {
+            using (Graphics g = Graphics.FromImage(bitmap))
+            {
+                switch (shapeType)
+                {
+                    case "Ellipse":
+                        figures.DrawEllipse(g, new Point((startPoint.X + endPoint.X) / 2, (startPoint.Y + endPoint.Y) / 2), new Size(Math.Abs(endPoint.X - startPoint.X), Math.Abs(endPoint.Y - startPoint.Y)));
+                        break;
+                    case "Rectangle":
+                        figures.DrawRectangle(g, new Point(Math.Min(startPoint.X, endPoint.X), Math.Min(startPoint.Y, endPoint.Y)), new Size(Math.Abs(endPoint.X - startPoint.X), Math.Abs(endPoint.Y - startPoint.Y)));
+                        break;
+                    case "Triangle":
+                        Point point1 = new Point(startPoint.X, endPoint.Y);
+                        Point point2 = new Point(endPoint.X, endPoint.Y);
+                        Point point3 = new Point((startPoint.X + endPoint.X) / 2, startPoint.Y);
+                        figures.DrawTriangle(g, point1, point2, point3);
+                        break;
+                    case "Pentagon":
+                        figures.DrawPentagon(g, new Point((startPoint.X + endPoint.X) / 2, (startPoint.Y + endPoint.Y) / 2), Math.Abs(endPoint.X - startPoint.X) / 2);
+                        break;
+                    case "Hexagon":
+                        figures.DrawHexagon(g, new Point((startPoint.X + endPoint.X) / 2, (startPoint.Y + endPoint.Y) / 2), Math.Abs(endPoint.X - startPoint.X) / 2);
+                        break;
+                    case "Line":
+                        figures.DrawLine(g, startPoint, endPoint);
+                        break;
+                }
+            }
+        }
+
+        private void PicCanvas_Paint(object sender, PaintEventArgs e)
+        {
+            e.Graphics.DrawImage(drawingBitmap, Point.Empty); // Dibuja el bitmap en el canvas
+        }
+
 
         private void PencilBox_Click(object sender, EventArgs e)
         {
@@ -178,7 +208,8 @@ namespace VividVista
 
         private void pictureBox11_Click(object sender, EventArgs e)
         {
-
+            shapeType = "Pentagon";
+            picCanvas.Cursor = Cursors.Cross;
         }
 
         private void textBox_Click(object sender, EventArgs e)
@@ -192,6 +223,37 @@ namespace VividVista
             Color defaultColor = Color.Black;
             toolManager.SetCurrentTool(new TextTool(defaultFont, defaultColor));
             picCanvas.Cursor = toolManager.GetCurrentCursor();
+        }
+    
+
+    private void DrawLineBox_Click(object sender, EventArgs e)
+        {
+            shapeType = "Line";
+            picCanvas.Cursor = Cursors.Cross;
+        }
+
+        private void DrawEllipseBox_Click(object sender, EventArgs e)
+        {
+            shapeType = "Ellipse";
+            picCanvas.Cursor = Cursors.Cross;
+        }
+
+        private void DrawRectangleBox_Click(object sender, EventArgs e)
+        {
+            shapeType = "Rectangle";
+            picCanvas.Cursor = Cursors.Cross;
+        }
+
+        private void DrawTriangleBox_Click(object sender, EventArgs e)
+        {
+            shapeType = "Triangle";
+            picCanvas.Cursor = Cursors.Cross;
+        }
+
+        private void DrawHexagonBox_Click(object sender, EventArgs e)
+        {
+            shapeType = "Hexagon";
+            picCanvas.Cursor = Cursors.Cross;
         }
     }
 }

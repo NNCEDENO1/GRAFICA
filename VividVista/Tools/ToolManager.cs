@@ -39,5 +39,6 @@ namespace VividVista.Tools
         {
             return currentTool?.GetCursor() ?? Cursors.Default;
         }
+
     }
 }

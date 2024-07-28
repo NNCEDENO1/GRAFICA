@@ -44,7 +44,7 @@ public class TextTool : Tool
             Multiline = true
         };
 
-        textBox.LostFocus += (s, e) =>
+        textBox.LostFocus += (s, e) => 
         {
             parentControl.Controls.Remove(textBox);
             using (Graphics g = Graphics.FromImage(((PictureBox)parentControl).Image))

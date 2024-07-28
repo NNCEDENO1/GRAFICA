@@ -67,16 +67,16 @@
             this.pictureBox15 = new System.Windows.Forms.PictureBox();
             this.pictureBox14 = new System.Windows.Forms.PictureBox();
             this.pictureBox13 = new System.Windows.Forms.PictureBox();
-            this.pictureBox12 = new System.Windows.Forms.PictureBox();
-            this.pictureBox11 = new System.Windows.Forms.PictureBox();
+            this.DrawHexagonBox = new System.Windows.Forms.PictureBox();
+            this.DrawPentagonBox = new System.Windows.Forms.PictureBox();
             this.pictureBox10 = new System.Windows.Forms.PictureBox();
             this.pictureBox9 = new System.Windows.Forms.PictureBox();
-            this.pictureBox8 = new System.Windows.Forms.PictureBox();
-            this.pictureBox7 = new System.Windows.Forms.PictureBox();
-            this.pictureBox6 = new System.Windows.Forms.PictureBox();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.DrawTriangleBox = new System.Windows.Forms.PictureBox();
+            this.DrawIrregularBox = new System.Windows.Forms.PictureBox();
+            this.DrawRectangleBox = new System.Windows.Forms.PictureBox();
+            this.DrawEllipseBox = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.DrawLineBox = new System.Windows.Forms.PictureBox();
             this.menuStrip2 = new System.Windows.Forms.MenuStrip();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.footerPanel = new System.Windows.Forms.FlowLayoutPanel();
@@ -120,16 +120,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DrawHexagonBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DrawPentagonBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DrawTriangleBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DrawIrregularBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DrawRectangleBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DrawEllipseBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DrawLineBox)).BeginInit();
             this.footerPanel.SuspendLayout();
             this.panel1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
@@ -315,16 +315,16 @@
             this.groupBox2.Controls.Add(this.pictureBox15);
             this.groupBox2.Controls.Add(this.pictureBox14);
             this.groupBox2.Controls.Add(this.pictureBox13);
-            this.groupBox2.Controls.Add(this.pictureBox12);
-            this.groupBox2.Controls.Add(this.pictureBox11);
+            this.groupBox2.Controls.Add(this.DrawHexagonBox);
+            this.groupBox2.Controls.Add(this.DrawPentagonBox);
             this.groupBox2.Controls.Add(this.pictureBox10);
             this.groupBox2.Controls.Add(this.pictureBox9);
-            this.groupBox2.Controls.Add(this.pictureBox8);
-            this.groupBox2.Controls.Add(this.pictureBox7);
-            this.groupBox2.Controls.Add(this.pictureBox6);
-            this.groupBox2.Controls.Add(this.pictureBox5);
+            this.groupBox2.Controls.Add(this.DrawTriangleBox);
+            this.groupBox2.Controls.Add(this.DrawIrregularBox);
+            this.groupBox2.Controls.Add(this.DrawRectangleBox);
+            this.groupBox2.Controls.Add(this.DrawEllipseBox);
             this.groupBox2.Controls.Add(this.pictureBox4);
-            this.groupBox2.Controls.Add(this.pictureBox3);
+            this.groupBox2.Controls.Add(this.DrawLineBox);
             this.groupBox2.Controls.Add(this.menuStrip2);
             this.groupBox2.Location = new System.Drawing.Point(453, 2);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(2);
@@ -447,24 +447,26 @@
             this.pictureBox13.TabIndex = 11;
             this.pictureBox13.TabStop = false;
             // 
-            // pictureBox12
+            // DrawHexagonBox
             // 
-            this.pictureBox12.Location = new System.Drawing.Point(5, 45);
-            this.pictureBox12.Name = "pictureBox12";
-            this.pictureBox12.Size = new System.Drawing.Size(24, 21);
-            this.pictureBox12.TabIndex = 10;
-            this.pictureBox12.TabStop = false;
+            this.DrawHexagonBox.Image = ((System.Drawing.Image)(resources.GetObject("DrawHexagonBox.Image")));
+            this.DrawHexagonBox.Location = new System.Drawing.Point(5, 45);
+            this.DrawHexagonBox.Name = "DrawHexagonBox";
+            this.DrawHexagonBox.Size = new System.Drawing.Size(24, 21);
+            this.DrawHexagonBox.TabIndex = 10;
+            this.DrawHexagonBox.TabStop = false;
+            this.DrawHexagonBox.Click += new System.EventHandler(this.DrawHexagonBox_Click);
             // 
-            // pictureBox11
+            // DrawPentagonBox
             // 
-            this.pictureBox11.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox11.Image")));
-            this.pictureBox11.Location = new System.Drawing.Point(245, 18);
-            this.pictureBox11.Name = "pictureBox11";
-            this.pictureBox11.Size = new System.Drawing.Size(24, 21);
-            this.pictureBox11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox11.TabIndex = 9;
-            this.pictureBox11.TabStop = false;
-            this.pictureBox11.Click += new System.EventHandler(this.pictureBox11_Click);
+            this.DrawPentagonBox.Image = ((System.Drawing.Image)(resources.GetObject("DrawPentagonBox.Image")));
+            this.DrawPentagonBox.Location = new System.Drawing.Point(245, 18);
+            this.DrawPentagonBox.Name = "DrawPentagonBox";
+            this.DrawPentagonBox.Size = new System.Drawing.Size(24, 21);
+            this.DrawPentagonBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.DrawPentagonBox.TabIndex = 9;
+            this.DrawPentagonBox.TabStop = false;
+            this.DrawPentagonBox.Click += new System.EventHandler(this.pictureBox11_Click);
             // 
             // pictureBox10
             // 
@@ -486,45 +488,48 @@
             this.pictureBox9.TabIndex = 7;
             this.pictureBox9.TabStop = false;
             // 
-            // pictureBox8
+            // DrawTriangleBox
             // 
-            this.pictureBox8.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox8.Image")));
-            this.pictureBox8.Location = new System.Drawing.Point(155, 18);
-            this.pictureBox8.Name = "pictureBox8";
-            this.pictureBox8.Size = new System.Drawing.Size(24, 21);
-            this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox8.TabIndex = 6;
-            this.pictureBox8.TabStop = false;
+            this.DrawTriangleBox.Image = ((System.Drawing.Image)(resources.GetObject("DrawTriangleBox.Image")));
+            this.DrawTriangleBox.Location = new System.Drawing.Point(155, 18);
+            this.DrawTriangleBox.Name = "DrawTriangleBox";
+            this.DrawTriangleBox.Size = new System.Drawing.Size(24, 21);
+            this.DrawTriangleBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.DrawTriangleBox.TabIndex = 6;
+            this.DrawTriangleBox.TabStop = false;
+            this.DrawTriangleBox.Click += new System.EventHandler(this.DrawTriangleBox_Click);
             // 
-            // pictureBox7
+            // DrawIrregularBox
             // 
-            this.pictureBox7.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox7.Image")));
-            this.pictureBox7.Location = new System.Drawing.Point(125, 18);
-            this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(24, 21);
-            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox7.TabIndex = 5;
-            this.pictureBox7.TabStop = false;
+            this.DrawIrregularBox.Image = ((System.Drawing.Image)(resources.GetObject("DrawIrregularBox.Image")));
+            this.DrawIrregularBox.Location = new System.Drawing.Point(125, 18);
+            this.DrawIrregularBox.Name = "DrawIrregularBox";
+            this.DrawIrregularBox.Size = new System.Drawing.Size(24, 21);
+            this.DrawIrregularBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.DrawIrregularBox.TabIndex = 5;
+            this.DrawIrregularBox.TabStop = false;
             // 
-            // pictureBox6
+            // DrawRectangleBox
             // 
-            this.pictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox6.Image")));
-            this.pictureBox6.Location = new System.Drawing.Point(95, 18);
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(24, 21);
-            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox6.TabIndex = 4;
-            this.pictureBox6.TabStop = false;
+            this.DrawRectangleBox.Image = ((System.Drawing.Image)(resources.GetObject("DrawRectangleBox.Image")));
+            this.DrawRectangleBox.Location = new System.Drawing.Point(95, 18);
+            this.DrawRectangleBox.Name = "DrawRectangleBox";
+            this.DrawRectangleBox.Size = new System.Drawing.Size(24, 21);
+            this.DrawRectangleBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.DrawRectangleBox.TabIndex = 4;
+            this.DrawRectangleBox.TabStop = false;
+            this.DrawRectangleBox.Click += new System.EventHandler(this.DrawRectangleBox_Click);
             // 
-            // pictureBox5
+            // DrawEllipseBox
             // 
-            this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
-            this.pictureBox5.Location = new System.Drawing.Point(65, 18);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(24, 21);
-            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox5.TabIndex = 3;
-            this.pictureBox5.TabStop = false;
+            this.DrawEllipseBox.Image = ((System.Drawing.Image)(resources.GetObject("DrawEllipseBox.Image")));
+            this.DrawEllipseBox.Location = new System.Drawing.Point(65, 18);
+            this.DrawEllipseBox.Name = "DrawEllipseBox";
+            this.DrawEllipseBox.Size = new System.Drawing.Size(24, 21);
+            this.DrawEllipseBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.DrawEllipseBox.TabIndex = 3;
+            this.DrawEllipseBox.TabStop = false;
+            this.DrawEllipseBox.Click += new System.EventHandler(this.DrawEllipseBox_Click);
             // 
             // pictureBox4
             // 
@@ -536,15 +541,16 @@
             this.pictureBox4.TabIndex = 2;
             this.pictureBox4.TabStop = false;
             // 
-            // pictureBox3
+            // DrawLineBox
             // 
-            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(5, 18);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(24, 21);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox3.TabIndex = 1;
-            this.pictureBox3.TabStop = false;
+            this.DrawLineBox.Image = ((System.Drawing.Image)(resources.GetObject("DrawLineBox.Image")));
+            this.DrawLineBox.Location = new System.Drawing.Point(5, 18);
+            this.DrawLineBox.Name = "DrawLineBox";
+            this.DrawLineBox.Size = new System.Drawing.Size(24, 21);
+            this.DrawLineBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.DrawLineBox.TabIndex = 1;
+            this.DrawLineBox.TabStop = false;
+            this.DrawLineBox.Click += new System.EventHandler(this.DrawLineBox_Click);
             // 
             // menuStrip2
             // 
@@ -744,16 +750,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DrawHexagonBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DrawPentagonBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DrawTriangleBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DrawIrregularBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DrawRectangleBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DrawEllipseBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DrawLineBox)).EndInit();
             this.footerPanel.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -801,20 +807,20 @@
         public System.Windows.Forms.PictureBox fillBox;
         private System.Windows.Forms.MenuStrip menuStrip2;
         private System.Windows.Forms.ImageList imageList1;
-        private System.Windows.Forms.PictureBox pictureBox11;
+        private System.Windows.Forms.PictureBox DrawPentagonBox;
         private System.Windows.Forms.PictureBox pictureBox10;
         private System.Windows.Forms.PictureBox pictureBox9;
-        private System.Windows.Forms.PictureBox pictureBox8;
-        private System.Windows.Forms.PictureBox pictureBox7;
-        private System.Windows.Forms.PictureBox pictureBox6;
-        private System.Windows.Forms.PictureBox pictureBox5;
+        private System.Windows.Forms.PictureBox DrawTriangleBox;
+        private System.Windows.Forms.PictureBox DrawIrregularBox;
+        private System.Windows.Forms.PictureBox DrawRectangleBox;
+        private System.Windows.Forms.PictureBox DrawEllipseBox;
         private System.Windows.Forms.PictureBox pictureBox4;
-        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.PictureBox DrawLineBox;
         private System.Windows.Forms.PictureBox pictureBox16;
         private System.Windows.Forms.PictureBox pictureBox15;
         private System.Windows.Forms.PictureBox pictureBox14;
         private System.Windows.Forms.PictureBox pictureBox13;
-        private System.Windows.Forms.PictureBox pictureBox12;
+        private System.Windows.Forms.PictureBox DrawHexagonBox;
         private System.Windows.Forms.PictureBox pictureBox19;
         private System.Windows.Forms.PictureBox pictureBox18;
         private System.Windows.Forms.PictureBox pictureBox17;
