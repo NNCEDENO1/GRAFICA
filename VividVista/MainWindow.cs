@@ -5,6 +5,7 @@ using System.IO;
 using VividVista.Properties;
 using VividVista.Tools;
 using VividVista.Figures;
+using System.Drawing.Imaging;
 
 
 namespace VividVista
@@ -35,6 +36,10 @@ namespace VividVista
             picCanvas.MouseDown += PicCanvas_MouseDown;
             picCanvas.MouseMove += PicCanvas_MouseMove;
             picCanvas.MouseUp += PicCanvas_MouseUp;
+            picCanvas.Paint += PicCanvas_Paint;
+
+           
+
 
         }
 
@@ -255,5 +260,31 @@ namespace VividVista
             shapeType = "Hexagon";
             picCanvas.Cursor = Cursors.Cross;
         }
+
+        private void pNGToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SaveImage("png");
+        }
+
+        private void jPGToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SaveImage("jpg");
+        }
+        private void SaveImage(string format)
+        {
+            using (SaveFileDialog saveFileDialog = new SaveFileDialog())
+            {
+                saveFileDialog.Filter = format == "png" ? "PNG Image|*.png" : "JPEG Image|*.jpg";
+                saveFileDialog.Title = "Save an Image File";
+                saveFileDialog.FileName = "drawing";
+
+                if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    ImageFormat imgFormat = format == "png" ? ImageFormat.Png : ImageFormat.Jpeg;
+                    drawingBitmap.Save(saveFileDialog.FileName, imgFormat);
+                }
+            }
+        }
     }
 }
+    
