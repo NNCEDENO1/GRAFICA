@@ -15,7 +15,7 @@ public class TextTool : Tool
 
     public override void Draw(Graphics graphics, Point startPoint, Point endPoint)
     {
-        // Este método no hará nada para TextTool ya que el texto se maneja en un TextBox
+        // Este método se puede implementar si se desea dibujar texto directamente
     }
 
     public override Cursor GetCursor()
@@ -44,7 +44,7 @@ public class TextTool : Tool
             Multiline = true
         };
 
-        textBox.LostFocus += (s, e) => 
+        textBox.LostFocus += (s, e) =>
         {
             parentControl.Controls.Remove(textBox);
             using (Graphics g = Graphics.FromImage(((PictureBox)parentControl).Image))

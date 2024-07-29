@@ -14,7 +14,7 @@ namespace VividVista
 {
     public partial class MainWindow : Form
     {
-        private ToolManager toolManager;
+         private ToolManager toolManager;
         private bool isDrawing = false;
         private Point lastPoint = Point.Empty;
         private Bitmap drawingBitmap;
@@ -25,6 +25,9 @@ namespace VividVista
         private BrushDraw brushes;
         private string currentBrush;
         private string currentTool;
+        private Font currentFont;
+        private Color currentColor;
+        private FontStyle currentFontStyle = FontStyle.Regular;
 
 
 
@@ -46,11 +49,10 @@ namespace VividVista
             picCanvas.MouseUp += PicCanvas_MouseUp;
             picCanvas.Paint += PicCanvas_Paint;
 
-           
-
+            InitializeFontControls();
 
         }
-
+       
         private void MainWindow_Load(object sender, EventArgs e)
         {
             int x = (this.ClientSize.Width - picCanvas.Width) / 2;
@@ -69,8 +71,67 @@ namespace VividVista
             {
                 MessageBox.Show("El tamaño del canvas es inválido.");
             }
-        }   
+        }
+        private void InitializeFontControls()
+        {
+            // Inicializar ComboBox de fuentes
+            var fonts = new string[] { "Microsoft Tai Le", "MingLiU_HKSCS-ExtB", "Mistral", "Monotype Corsiva", "MV Boli", "OCR A", "Onyx", "Palatino Linotype", "Papyrus", "Ravie", "Rockwell" };
+            cmbFontText.Items.AddRange(fonts);
+            cmbFontText.SelectedItem = "Arial"; // Valor por defecto
+            cmbFontText.Enabled = false; // Deshabilitar inicialmente
 
+            // Inicializar ComboBox de tamaños
+            var sizes = new int[] { 8, 10, 12, 14, 16, 22, 24, 32, 36 };
+            foreach (var size in sizes)
+            {
+                cmbSizeText.Items.Add(size);
+            }
+            cmbSizeText.SelectedItem = 12; // Valor por defecto
+            cmbSizeText.Enabled = false; // Deshabilitar inicialmente
+
+            // Inicializar botón de negrita
+            picBold.Click += (s, e) => ToggleFontStyle(FontStyle.Bold);
+            picBold.Enabled = false; // Deshabilitar inicialmente
+
+            // Eventos de cambio en ComboBox
+            cmbFontText.SelectedIndexChanged += (s, e) => UpdateFont();
+            cmbSizeText.SelectedIndexChanged += (s, e) => UpdateFont();
+
+            // Inicializar valores por defecto
+            currentFont = new Font("Arial", 12, currentFontStyle);
+            currentColor = Color.Black;
+        }
+
+
+
+        private void UpdateFont()
+        {
+            if (cmbFontText.SelectedItem == null || cmbSizeText.SelectedItem == null)
+                return; // Asegúrate de que se haya seleccionado algo
+
+            string selectedFontName = cmbFontText.SelectedItem.ToString();
+            float selectedFontSize = float.Parse(cmbSizeText.SelectedItem.ToString());
+            currentFont = new Font(selectedFontName, selectedFontSize, currentFontStyle);
+
+            if (toolManager.GetCurrentTool() is TextTool textTool)
+            {
+                textTool.SetFont(currentFont);
+            }
+        }
+
+
+        private void ToggleFontStyle(FontStyle style)
+        {
+            if ((currentFontStyle & style) == style)
+            {
+                currentFontStyle &= ~style; // Quitar el estilo
+            }
+            else
+            {
+                currentFontStyle |= style; // Añadir el estilo
+            }
+            UpdateFont();
+        }
         private void CursorPositionTimer_Tick(object sender, EventArgs e)
         {
             var clientPoint = this.PointToClient(Cursor.Position);
@@ -224,6 +285,7 @@ namespace VividVista
             picCanvas.Cursor = toolManager.GetCurrentCursor();
             currentTool = "Eraser";
             currentBrush = null;
+            DisableFontControls();
         }
 
 
@@ -263,14 +325,29 @@ namespace VividVista
                 toolManager = new ToolManager();
             }
 
-            Font defaultFont = new Font("Arial", 12);
-            Color defaultColor = Color.Black;
-            toolManager.SetCurrentTool(new TextTool(defaultFont, defaultColor));
+            var textTool = new TextTool(currentFont, currentColor); // Usa la fuente y el color actuales
+            toolManager.SetCurrentTool(textTool);
             picCanvas.Cursor = toolManager.GetCurrentCursor();
-        }
-    
+            currentTool = "Text";
 
-    private void DrawLineBox_Click(object sender, EventArgs e)
+            EnableFontControls(); // Habilitar controles de fuente
+        }
+        private void EnableFontControls()
+        {
+            cmbFontText.Enabled = true;
+            cmbSizeText.Enabled = true;
+            picBold.Enabled = true;
+            UpdateFont();
+        }
+
+        private void DisableFontControls()
+        {
+            cmbFontText.Enabled = false;
+            cmbSizeText.Enabled = false;
+            picBold.Enabled = false;
+        }
+
+        private void DrawLineBox_Click(object sender, EventArgs e)
         {
             shapeType = "Line";
             picCanvas.Cursor = Cursors.Cross;
@@ -334,6 +411,7 @@ namespace VividVista
             currentBrush = "Pincel";
             picCanvas.Cursor = Cursors.Cross;
             currentTool = null;
+            DisableFontControls();
         }
 
         private void caligraficoBox_Click(object sender, EventArgs e)
@@ -341,6 +419,8 @@ namespace VividVista
             currentBrush = "Caligrafia";
             picCanvas.Cursor = Cursors.Cross;
             currentTool = null;
+            DisableFontControls();
+
         }
 
         private void aerografoBox_Click(object sender, EventArgs e)
@@ -348,6 +428,7 @@ namespace VividVista
             currentBrush = "Aerografo";
             picCanvas.Cursor = Cursors.Cross;
             currentTool = null;
+            DisableFontControls();
         }
 
         private void oleoBox_Click(object sender, EventArgs e)
@@ -355,6 +436,7 @@ namespace VividVista
             currentBrush = "Oleo";
             picCanvas.Cursor = Cursors.Cross;
             currentTool = null;
+            DisableFontControls();
         }
 
         private void crayonBox_Click(object sender, EventArgs e)
@@ -362,6 +444,7 @@ namespace VividVista
             currentBrush = "Crayon";
             picCanvas.Cursor = Cursors.Cross;
             currentTool = null;
+            DisableFontControls();
         }
 
         private void marcadorBox_Click(object sender, EventArgs e)
@@ -369,6 +452,7 @@ namespace VividVista
             currentBrush = "Marcador";
             picCanvas.Cursor = Cursors.Cross;
             currentTool = null;
+            DisableFontControls();
         }
 
         private void lapizPincelBox_Click(object sender, EventArgs e)
@@ -376,6 +460,7 @@ namespace VividVista
             currentBrush = "Lapiz";
             picCanvas.Cursor = Cursors.Cross;
             currentTool = null;
+            DisableFontControls();
         }
 
         private void acuarelaBox_Click(object sender, EventArgs e)
@@ -383,6 +468,22 @@ namespace VividVista
             currentBrush = "Acuarela";
             picCanvas.Cursor = Cursors.Cross;
             currentTool = null;
+            DisableFontControls();
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void picBold_Click(object sender, EventArgs e)
+        {
+            ToggleFontStyle(FontStyle.Bold);
+        }
+
+        private void cmbSizeText_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

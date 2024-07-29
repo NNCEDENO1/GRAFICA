@@ -105,6 +105,9 @@
             this.acuarelaBox = new System.Windows.Forms.PictureBox();
             this.lapizPincelBox = new System.Windows.Forms.PictureBox();
             this.oleoBox = new System.Windows.Forms.PictureBox();
+            this.cmbFontText = new System.Windows.Forms.ComboBox();
+            this.cmbSizeText = new System.Windows.Forms.ComboBox();
+            this.picBold = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.grpSlection.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -152,6 +155,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.acuarelaBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lapizPincelBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.oleoBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBold)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -712,7 +716,7 @@
             // pNGToolStripMenuItem
             // 
             this.pNGToolStripMenuItem.Name = "pNGToolStripMenuItem";
-            this.pNGToolStripMenuItem.Size = new System.Drawing.Size(98, 22);
+            this.pNGToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.pNGToolStripMenuItem.Text = "PNG";
             this.pNGToolStripMenuItem.Click += new System.EventHandler(this.pNGToolStripMenuItem_Click);
             // 
@@ -833,11 +837,86 @@
             this.oleoBox.TabStop = false;
             this.oleoBox.Click += new System.EventHandler(this.oleoBox_Click);
             // 
+            // cmbFontText
+            // 
+            this.cmbFontText.AutoCompleteCustomSource.AddRange(new string[] {
+            "Microsoft Tai Le",
+            "MingLiU_HKSCS-ExtB",
+            "Mistral",
+            "Monotype Corsiva",
+            "MV Boli",
+            "OCR A",
+            "Onyx",
+            "Palatino Linotype",
+            "Papyrus",
+            "Ravie",
+            "Rockwell"});
+            this.cmbFontText.FormattingEnabled = true;
+            this.cmbFontText.Items.AddRange(new object[] {
+            "Microsoft Tai Le",
+            "MingLiU_HKSCS-ExtB",
+            "Mistral",
+            "Monotype Corsiva",
+            "MV Boli",
+            "OCR A",
+            "Onyx",
+            "Palatino Linotype",
+            "Papyrus",
+            "Ravie",
+            "Rockwell"});
+            this.cmbFontText.Location = new System.Drawing.Point(91, 180);
+            this.cmbFontText.Name = "cmbFontText";
+            this.cmbFontText.Size = new System.Drawing.Size(121, 21);
+            this.cmbFontText.TabIndex = 8;
+            this.cmbFontText.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            // 
+            // cmbSizeText
+            // 
+            this.cmbSizeText.AutoCompleteCustomSource.AddRange(new string[] {
+            "8",
+            "10",
+            "12",
+            "14",
+            "22",
+            "26",
+            "32",
+            "36"});
+            this.cmbSizeText.FormattingEnabled = true;
+            this.cmbSizeText.Items.AddRange(new object[] {
+            "8",
+            "10",
+            "12",
+            "14",
+            "16",
+            "22",
+            "24",
+            "32",
+            "36"});
+            this.cmbSizeText.Location = new System.Drawing.Point(91, 207);
+            this.cmbSizeText.Name = "cmbSizeText";
+            this.cmbSizeText.Size = new System.Drawing.Size(121, 21);
+            this.cmbSizeText.TabIndex = 9;
+            this.cmbSizeText.SelectedIndexChanged += new System.EventHandler(this.cmbSizeText_SelectedIndexChanged);
+            // 
+            // picBold
+            // 
+            this.picBold.Image = ((System.Drawing.Image)(resources.GetObject("picBold.Image")));
+            this.picBold.Location = new System.Drawing.Point(91, 234);
+            this.picBold.Name = "picBold";
+            this.picBold.Size = new System.Drawing.Size(24, 19);
+            this.picBold.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picBold.TabIndex = 10;
+            this.picBold.TabStop = false;
+            this.picBold.Click += new System.EventHandler(this.picBold_Click);
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1028, 567);
+            this.Controls.Add(this.picBold);
+            this.Controls.Add(this.cmbSizeText);
+            this.Controls.Add(this.cmbFontText);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.picCanvas);
@@ -903,6 +982,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.acuarelaBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lapizPincelBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.oleoBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBold)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -974,6 +1054,9 @@
         private System.Windows.Forms.PictureBox aerografoBox;
         private System.Windows.Forms.PictureBox caligraficoBox;
         private System.Windows.Forms.PictureBox pincelBox;
+        private System.Windows.Forms.ComboBox cmbFontText;
+        private System.Windows.Forms.ComboBox cmbSizeText;
+        private System.Windows.Forms.PictureBox picBold;
     }
 }
 
