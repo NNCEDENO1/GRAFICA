@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.35004.147
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PaintP", "PaintP\PaintP.csproj", "{8DFBC8D2-980B-47ED-A5B5-668036677887}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Elementos de la solución", "Elementos de la solución", "{1FF55930-3482-4805-B8C6-A40F81B77CA3}"
+	ProjectSection(SolutionItems) = preProject
+		PaintIcon.ico = PaintIcon.ico
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8DFBC8D2-980B-47ED-A5B5-668036677887}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8DFBC8D2-980B-47ED-A5B5-668036677887}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8DFBC8D2-980B-47ED-A5B5-668036677887}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8DFBC8D2-980B-47ED-A5B5-668036677887}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FC01B6BE-7291-4D08-92AD-65DB6367A9EB}
+	EndGlobalSection
+EndGlobal
