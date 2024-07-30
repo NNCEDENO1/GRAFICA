@@ -76,6 +76,7 @@
             this.verToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.zoomToolStripMenuItem = new System.Windows.Forms.ToolStripTextBox();
             this.anteriorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnCut = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.oleoBox)).BeginInit();
@@ -98,6 +99,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.panel1.Controls.Add(this.btnCut);
             this.panel1.Controls.Add(this.groupBox1);
             this.panel1.Controls.Add(this.panel4);
             this.panel1.Controls.Add(this.btn_save);
@@ -531,6 +533,7 @@
             this.btn_texto.Size = new System.Drawing.Size(29, 28);
             this.btn_texto.TabIndex = 13;
             this.btn_texto.UseVisualStyleBackColor = false;
+            this.btn_texto.Click += new System.EventHandler(this.btn_texto_Click);
             // 
             // pic_color
             // 
@@ -732,6 +735,16 @@
             this.anteriorToolStripMenuItem.Size = new System.Drawing.Size(78, 20);
             this.anteriorToolStripMenuItem.Text = "Anterior";
             // 
+            // btnCut
+            // 
+            this.btnCut.Location = new System.Drawing.Point(780, 35);
+            this.btnCut.Name = "btnCut";
+            this.btnCut.Size = new System.Drawing.Size(34, 23);
+            this.btnCut.TabIndex = 18;
+            this.btnCut.Text = "Cut";
+            this.btnCut.UseVisualStyleBackColor = true;
+            this.btnCut.Click += new System.EventHandler(this.btnCut_Click);
+            // 
             // Form1
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -818,6 +831,7 @@
         private System.Windows.Forms.ToolStripMenuItem verToolStripMenuItem;
         private System.Windows.Forms.ToolStripTextBox zoomToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem anteriorToolStripMenuItem;
+        private System.Windows.Forms.Button btnCut;
     }
 }
 

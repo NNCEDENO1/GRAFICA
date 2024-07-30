@@ -24,12 +24,20 @@ namespace PaintP
         string currentBrush = ""; // Pincel actual
         string currentTool = ""; // Herramienta actual
         Color currentColor = Color.Black;
+        private TextBox textBox; // Cuadro de texto para insertar texto
+        private Point textPosition; // Posición del texto en el PictureBox
+        private bool selecting = false; // Indica si se está seleccionando un área
+        private Rectangle selectionRectangle; // Área seleccionada
+        private Bitmap selectedArea; // Imagen del área seleccionada
+        private bool moving = false; // Indica si se está moviendo el área seleccionada
+        private Point selectionStart; // Punto de inicio de la selección
+        private Point currentLocation; // Ubicación actual del área seleccionada
 
-        
+
+
         public Form1()
         {
             InitializeComponent();
-
             this.Width = 950;
             this.Height = 700;
             bm = new Bitmap(pic.Width, pic.Height);
@@ -41,6 +49,28 @@ namespace PaintP
             erase = new Pen(Color.White, 10);
 
             this.Resize += new EventHandler(Form1_Resize);
+
+            // Inicializar el TextBox para texto
+            textBox = new TextBox();
+            textBox.Multiline = true;
+            textBox.Visible = false; // Inicialmente oculto
+            textBox.Size = new Size(200, 30); // Establecer un tamaño adecuado
+            textBox.Leave += new EventHandler(textBox_Leave); // Evento para manejar cuando pierde el foco
+            this.Controls.Add(textBox); // Agregar el TextBox al formulario
+        }
+        private void textBox_Leave(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(textBox.Text))
+            {
+                using (Graphics g = Graphics.FromImage(bm))
+                {
+                    g.DrawString(textBox.Text, textBox.Font, new SolidBrush(p.Color), textPosition);
+                }
+                pic.Refresh();
+                textBox.Text = "";
+            }
+            textBox.Visible = false; // Ocultar el TextBox
+            currentTool = ""; // Desactivar el modo de texto
         }
 
         private void Form1_Resize(object sender, EventArgs e)
@@ -57,15 +87,46 @@ namespace PaintP
 
         private void pic_MouseDown(object sender, MouseEventArgs e)
         {
-           
-            paint = true;
-            lastPoint = e.Location;
+
+            if (index == 15) // Si la herramienta de recorte está seleccionada
+            {
+                selecting = true;
+                selectionStart = e.Location;
+                selectionRectangle = new Rectangle(e.Location, new Size(0, 0));
+            }
+            else if (selectedArea != null && selectionRectangle.Contains(e.Location))
+            {
+                moving = true;
+                currentLocation = e.Location;
+            }
+            else
+            {
+                paint = true;
+                lastPoint = e.Location;
+            }
         }
 
         private void pic_MouseMove(object sender, MouseEventArgs e)
         {
-            if (paint)
+
+            if (selecting)
             {
+                int width = e.X - selectionStart.X;
+                int height = e.Y - selectionStart.Y;
+                selectionRectangle = new Rectangle(selectionStart.X, selectionStart.Y, width, height);
+                pic.Invalidate();
+            }
+            else if (moving && selectedArea != null)
+            {
+                int offsetX = e.X - currentLocation.X;
+                int offsetY = e.Y - currentLocation.Y;
+                selectionRectangle.Offset(offsetX, offsetY);
+                currentLocation = e.Location;
+                pic.Invalidate();
+            }
+            else if (paint)
+            {
+               
                 // Obtener el objeto Graphics del Bitmap
                 using (Graphics g = Graphics.FromImage(bm))
                 {
@@ -118,74 +179,100 @@ namespace PaintP
 
         private void pic_MouseUp(object sender, MouseEventArgs e)
         {
-            paint = false;
-
-            using (Graphics g = Graphics.FromImage(bm))
+            if (selecting)
             {
-                if (index == 1) // Lápiz
-                {
-                    g.DrawLine(p, lastPoint, e.Location);
-                }
-                else if (index == 2) // Borrador
-                {
-                    g.DrawLine(erase, lastPoint, e.Location);
-                }
-                else // Dibujo de formas
-                {
-                    int width = e.X - lastPoint.X;
-                    int height = e.Y - lastPoint.Y;
+                selecting = false;
 
-                    switch (index)
+                if (selectionRectangle.Width > 0 && selectionRectangle.Height > 0)
+                {
+                    selectedArea = bm.Clone(selectionRectangle, bm.PixelFormat);
+                    g.FillRectangle(Brushes.White, selectionRectangle); // Borrar el área seleccionada
+                }
+            }
+            else if (moving)
+            {
+                moving = false;
+
+                if (selectedArea != null)
+                {
+                    g.DrawImage(selectedArea, selectionRectangle.Location);
+                    selectedArea.Dispose();
+                    selectedArea = null;
+                }
+            }
+            else
+            {
+                paint = false;
+
+                using (Graphics g = Graphics.FromImage(bm))
+                {
+                    if (index == 1) // Lápiz
                     {
-                        case 3: // Elipse
-                            g.DrawEllipse(p, lastPoint.X, lastPoint.Y, width, height);
-                            break;
-                        case 4: // Rectángulo
-                            g.DrawRectangle(p, lastPoint.X, lastPoint.Y, width, height);
-                            break;
-                        case 5: // Línea
-                            g.DrawLine(p, lastPoint, e.Location);
-                            break;
-                        case 6: // Triángulo
-                            DrawTriangle(g, p, lastPoint.X, lastPoint.Y, width, height);
-                            break;
-                        case 7: // Estrella
-                            DrawStar(g, p, lastPoint.X, lastPoint.Y, Math.Max(width, height) / 2);
-                            break;
-                        case 8: // Corazón
-                            DrawHeart(g, p, lastPoint.X, lastPoint.Y, Math.Max(width, height) / 2);
-                            break;
-                        case 9: // Pentágono
-                            DrawPentagon(g, p, lastPoint.X, lastPoint.Y, Math.Max(width, height) / 2);
-                            break;
-                        case 10: // Hexágono
-                            DrawHexagon(g, p, lastPoint.X, lastPoint.Y, Math.Max(width, height) / 2);
-                            break;
-                        case 11: // Flecha hacia arriba
-                            DrawArrow(g, p, lastPoint.X, lastPoint.Y, true);
-                            break;
-                        case 12: // Flecha hacia abajo
-                            DrawArrow(g, p, lastPoint.X, lastPoint.Y, false);
-                            break;
-                        case 13: // Flecha hacia la derecha
-                            DrawArrow(g, p, lastPoint.X, lastPoint.Y, true, false);
-                            break;
-                        case 14: // Flecha hacia la izquierda
-                            DrawArrow(g, p, lastPoint.X, lastPoint.Y, false, false);
-                            break;
+                        g.DrawLine(p, lastPoint, e.Location);
+                    }
+                    else if (index == 2) // Borrador
+                    {
+                        g.DrawLine(erase, lastPoint, e.Location);
+                    }
+                    else // Dibujo de formas
+                    {
+                        int width = e.X - lastPoint.X;
+                        int height = e.Y - lastPoint.Y;
+
+                        switch (index)
+                        {
+                            case 3: // Elipse
+                                g.DrawEllipse(p, lastPoint.X, lastPoint.Y, width, height);
+                                break;
+                            case 4: // Rectángulo
+                                g.DrawRectangle(p, lastPoint.X, lastPoint.Y, width, height);
+                                break;
+                            case 5: // Línea
+                                g.DrawLine(p, lastPoint, e.Location);
+                                break;
+                            case 6: // Triángulo
+                                DrawTriangle(g, p, lastPoint.X, lastPoint.Y, width, height);
+                                break;
+                            case 7: // Estrella
+                                DrawStar(g, p, lastPoint.X, lastPoint.Y, Math.Max(width, height) / 2);
+                                break;
+                            case 8: // Corazón
+                                DrawHeart(g, p, lastPoint.X, lastPoint.Y, Math.Max(width, height) / 2);
+                                break;
+                            case 9: // Pentágono
+                                DrawPentagon(g, p, lastPoint.X, lastPoint.Y, Math.Max(width, height) / 2);
+                                break;
+                            case 10: // Hexágono
+                                DrawHexagon(g, p, lastPoint.X, lastPoint.Y, Math.Max(width, height) / 2);
+                                break;
+                            case 11: // Flecha hacia arriba
+                                DrawArrow(g, p, lastPoint.X, lastPoint.Y, true);
+                                break;
+                            case 12: // Flecha hacia abajo
+                                DrawArrow(g, p, lastPoint.X, lastPoint.Y, false);
+                                break;
+                            case 13: // Flecha hacia la derecha
+                                DrawArrow(g, p, lastPoint.X, lastPoint.Y, true, false);
+                                break;
+                            case 14: // Flecha hacia la izquierda
+                                DrawArrow(g, p, lastPoint.X, lastPoint.Y, false, false);
+                                break;
+                        }
                     }
                 }
             }
 
-            pic.Refresh(); 
+            pic.Refresh();
         }
+
         private void btn_color_Click(object sender, EventArgs e)
         {
             if (cd.ShowDialog() == DialogResult.OK)
             {
                 new_color = cd.Color;
                 pic_color.BackColor = new_color;
-                p.Color = new_color; 
+                p.Color = new_color;
+                textBox.ForeColor = new_color; // Cambiar el color del texto también
             }
         }
 
@@ -296,27 +383,29 @@ namespace PaintP
         private void btn_arrow_down_Click(object sender, EventArgs e) => index = 12;
         private void btn_arrow_right_Click(object sender, EventArgs e) => index = 13;
         private void btn_arrow_left_Click(object sender, EventArgs e) => index = 14;
+        private void btnCut_Click(object sender, EventArgs e) => index = 15;
 
         private void pic_Paint(object sender, PaintEventArgs e)
         {
-            if (paint)
+            if (selecting)
             {
-                if (index == 3) // Ellipse
+                using (Pen selectPen = new Pen(Color.Blue, 2))
                 {
-                    e.Graphics.DrawEllipse(p, cX, cY, sX, sY);
-                }
-                else if (index == 4) // Rectangle
-                {
-                    e.Graphics.DrawRectangle(p, cX, cY, sX, sY);
-                }
-                else if (index == 5) // Line
-                {
-                    e.Graphics.DrawLine(p, cX, cY, x, y);
+                    selectPen.DashStyle = DashStyle.Dash;
+                    e.Graphics.DrawRectangle(selectPen, selectionRectangle);
                 }
             }
+            else if (moving && selectedArea != null)
+            {
+                e.Graphics.DrawImage(selectedArea, selectionRectangle.Location);
+            }
+            
         }
 
-
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            btn_texto.Click += new EventHandler(btn_texto_Click);
+        }
 
         static Point set_point(PictureBox pb, Point pt)
         {
@@ -340,6 +429,7 @@ namespace PaintP
             picCanvas.MouseMove += new MouseEventHandler(pic_MouseMove);
             picCanvas.MouseUp += new MouseEventHandler(pic_MouseUp);
             picCanvas.MouseClick += new MouseEventHandler(pic_MouseClick);
+            
 
             this.Controls.Add(picCanvas);
 
@@ -373,7 +463,7 @@ namespace PaintP
 
         private void pincelBox_Click(object sender, EventArgs e)
         {
-            currentBrush = "Pincel";
+            currentBrush = "Acuarela";
             pic.Cursor = Cursors.Cross;
             currentTool = null;
             DisableFontControls();
@@ -514,12 +604,30 @@ namespace PaintP
             }
         }
 
+        private void btn_texto_Click(object sender, EventArgs e)
+        {
+            currentTool = "Text";
+            pic.Cursor = Cursors.IBeam; // Cambiar el cursor a IBeam para indicar el modo de texto
+            DisableFontControls(); 
+        }
+
+
+
         private void color_picker_MouseClick(object sender, MouseEventArgs e)
         {
-            Point point = set_point(color_picker, e.Location);
-            pic_color.BackColor = ((Bitmap)color_picker.Image).GetPixel(point.X, point.Y);
-            new_color = pic_color.BackColor;
-            p.Color = new_color;
+            if (currentTool == "Text")
+            {
+                textBox.Location = e.Location;
+                textPosition = e.Location;
+                textBox.Visible = true;
+                textBox.Focus();
+            }
+            else if (index == 7) // Fill
+            {
+                Point point = set_point(pic, e.Location);
+                Fill(bm, point.X, point.Y, new_color);
+                pic.Refresh();
+            }
         }
 
         private void validate(Bitmap bm, Stack<Point> sp, int x, int y, Color old_color, Color new_color)
@@ -556,11 +664,18 @@ namespace PaintP
 
         private void pic_MouseClick(object sender, MouseEventArgs e)
         {
-            if (index == 7) // Fill
+            if (currentTool == "Text")
+            {
+                textBox.Location = e.Location; // Establecer la ubicación del TextBox
+                textPosition = e.Location; // Guardar la posición del texto
+                textBox.Visible = true; // Hacer visible el TextBox
+                textBox.Focus(); // Dar foco al TextBox
+            }
+            else if (index == 7) // Fill
             {
                 Point point = set_point(pic, e.Location);
                 Fill(bm, point.X, point.Y, new_color);
-                pic.Refresh(); // Refresh to update the PictureBox
+                pic.Refresh();
             }
         }
 
