@@ -69,20 +69,20 @@ namespace PaintP
                 // Obtener el objeto Graphics del Bitmap
                 using (Graphics g = Graphics.FromImage(bm))
                 {
-                    // Seleccionar la herramienta de dibujo
+                    
                     if (index == 1) // Lápiz
                     {
                         g.DrawLine(p, lastPoint, e.Location);
-                        lastPoint = e.Location; // Actualizar la última posición
+                        lastPoint = e.Location; 
                     }
                     else if (index == 2) // Borrador
                     {
                         g.DrawLine(erase, lastPoint, e.Location);
-                        lastPoint = e.Location; // Actualizar la última posición
+                        lastPoint = e.Location; 
                     }
                     else if (!string.IsNullOrEmpty(currentBrush))
                     {
-                        // Dibuja con el pincel seleccionado
+                 
                         switch (currentBrush)
                         {
                             case "Oleo":
@@ -107,20 +107,19 @@ namespace PaintP
                                 brushes.DrawPencilBrush(g, lastPoint, e.Location);
                                 break;
                         }
-                        lastPoint = e.Location; // Actualizar la última posición
+                        lastPoint = e.Location; 
                     }
                 }
 
-                // Actualizar el PictureBox
+ 
                 pic.Invalidate();
             }
         }
 
         private void pic_MouseUp(object sender, MouseEventArgs e)
         {
-            paint = false; // Dejar de pintar
+            paint = false;
 
-            // Actualizar el bitmap con la última línea dibujada
             using (Graphics g = Graphics.FromImage(bm))
             {
                 if (index == 1) // Lápiz
@@ -178,7 +177,7 @@ namespace PaintP
                 }
             }
 
-            pic.Refresh(); // Refrescar para actualizar el PictureBox
+            pic.Refresh(); 
         }
         private void btn_color_Click(object sender, EventArgs e)
         {
@@ -186,7 +185,7 @@ namespace PaintP
             {
                 new_color = cd.Color;
                 pic_color.BackColor = new_color;
-                p.Color = new_color; // Cambiar el color del lápiz
+                p.Color = new_color; 
             }
         }
 
@@ -278,6 +277,8 @@ namespace PaintP
         {
             g.Clear(Color.White);
             pic.Image = bm;
+            pic.Image = null;
+            bm = null;
             index = 0;
             pic.Refresh();
         }
@@ -326,8 +327,40 @@ namespace PaintP
 
         private void nuevoToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            
+            PictureBox picCanvas = new PictureBox();
+            picCanvas.Width = this.ClientSize.Width - 20;
+            picCanvas.Height = this.ClientSize.Height - 200; 
+            picCanvas.BackColor = Color.White; 
+            picCanvas.BorderStyle = BorderStyle.FixedSingle; 
 
+           
+            picCanvas.Paint += new PaintEventHandler(pic_Paint);
+            picCanvas.MouseDown += new MouseEventHandler(pic_MouseDown);
+            picCanvas.MouseMove += new MouseEventHandler(pic_MouseMove);
+            picCanvas.MouseUp += new MouseEventHandler(pic_MouseUp);
+            picCanvas.MouseClick += new MouseEventHandler(pic_MouseClick);
+
+            this.Controls.Add(picCanvas);
+
+            if (pic != null)
+            {
+                pic.Dispose(); 
+            }
+
+            
+            pic = picCanvas;
+
+            
+            bm = new Bitmap(pic.Width, pic.Height);
+            g = Graphics.FromImage(bm);
+            g.Clear(Color.White);
+            pic.Image = bm;
+
+            
+            pic.Invalidate();
         }
+
 
         private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
@@ -405,6 +438,80 @@ namespace PaintP
         private void color_picker_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void pNGToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var sfd = new SaveFileDialog();
+            sfd.Filter = "Image (*.png)|*.png"; // Filtro solo para PNG
+            if (sfd.ShowDialog() == DialogResult.OK)
+            {
+                Bitmap btm = bm.Clone(new Rectangle(0, 0, pic.Width, pic.Height), bm.PixelFormat);
+
+                // Guardar solo en formato PNG
+                btm.Save(sfd.FileName, ImageFormat.Png); // Guardar como PNG
+
+                MessageBox.Show("Su imagen ha sido guardada exitosamente");
+            }
+        }
+
+        private void jPGToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var sfd = new SaveFileDialog();
+            sfd.Filter = "Image (*.jpg)|*.jpg"; // Filtro solo para JPG
+            if (sfd.ShowDialog() == DialogResult.OK)
+            {
+                Bitmap btm = bm.Clone(new Rectangle(0, 0, pic.Width, pic.Height), bm.PixelFormat);
+
+                // Guardar solo en formato JPG
+                btm.Save(sfd.FileName, ImageFormat.Jpeg); // Guardar como JPG
+
+                MessageBox.Show("Su imagen ha sido guardada exitosamente");
+            }
+        }
+
+        private void abrirToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var ofd = new OpenFileDialog();
+            ofd.Filter = "Image Files (*.png;*.jpg;*.jpeg;*.bmp)|*.png;*.jpg;*.jpeg;*.bmp|All files (*.*)|*.*"; // Filtro para varios formatos de imagen
+
+            if (ofd.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    // Cargar la imagen seleccionada
+                    Bitmap imagenImportada = new Bitmap(ofd.FileName);
+                    bm = imagenImportada; // Asignar la imagen al Bitmap
+
+                    // Ajustar el PictureBox
+                    pic.Image = bm; // Mostrar la imagen en el PictureBox
+                    pic.SizeMode = PictureBoxSizeMode.StretchImage; // Ajustar el tamaño de la imagen al PictureBox
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error al importar la imagen: {ex.Message}");
+                }
+            }
+        }
+
+        private float zoomFactor = 1.0f; 
+        private void trackBar1_Scroll(object sender, EventArgs e)
+        {
+            
+            zoomFactor = trackBar1.Value; 
+            AplicarZoom(); 
+        }
+
+        private void AplicarZoom()
+        {
+            if (bm != null)
+            {
+               
+                Bitmap zoomedImage = new Bitmap(bm, new Size((int)(bm.Width * zoomFactor), (int)(bm.Height * zoomFactor)));
+                pic.Image = zoomedImage; 
+                pic.SizeMode = PictureBoxSizeMode.StretchImage; 
+                pic.Refresh(); 
+            }
         }
 
         private void color_picker_MouseClick(object sender, MouseEventArgs e)

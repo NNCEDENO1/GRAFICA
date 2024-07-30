@@ -68,8 +68,14 @@
             this.pic = new System.Windows.Forms.PictureBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.archivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.nuevoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.abrirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.nuevoToolStripMenuItem = new System.Windows.Forms.ToolStripTextBox();
+            this.abrirToolStripMenuItem = new System.Windows.Forms.ToolStripTextBox();
+            this.guardarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pNGToolStripMenuItem = new System.Windows.Forms.ToolStripTextBox();
+            this.jPGToolStripMenuItem = new System.Windows.Forms.ToolStripTextBox();
+            this.verToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.zoomToolStripMenuItem = new System.Windows.Forms.ToolStripTextBox();
+            this.anteriorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.oleoBox)).BeginInit();
@@ -118,7 +124,7 @@
             this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox1.Size = new System.Drawing.Size(135, 74);
+            this.groupBox1.Size = new System.Drawing.Size(97, 74);
             this.groupBox1.TabIndex = 17;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Brushes";
@@ -128,7 +134,7 @@
             this.oleoBox.BackColor = System.Drawing.Color.White;
             this.oleoBox.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("oleoBox.BackgroundImage")));
             this.oleoBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.oleoBox.Location = new System.Drawing.Point(39, 45);
+            this.oleoBox.Location = new System.Drawing.Point(38, 45);
             this.oleoBox.Name = "oleoBox";
             this.oleoBox.Size = new System.Drawing.Size(24, 21);
             this.oleoBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -165,7 +171,7 @@
             this.crayonBox.BackColor = System.Drawing.Color.White;
             this.crayonBox.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("crayonBox.BackgroundImage")));
             this.crayonBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.crayonBox.Location = new System.Drawing.Point(69, 45);
+            this.crayonBox.Location = new System.Drawing.Point(68, 45);
             this.crayonBox.Name = "crayonBox";
             this.crayonBox.Size = new System.Drawing.Size(24, 21);
             this.crayonBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -178,7 +184,7 @@
             this.marcadorBox.BackColor = System.Drawing.Color.White;
             this.marcadorBox.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("marcadorBox.BackgroundImage")));
             this.marcadorBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.marcadorBox.Location = new System.Drawing.Point(69, 15);
+            this.marcadorBox.Location = new System.Drawing.Point(68, 17);
             this.marcadorBox.Name = "marcadorBox";
             this.marcadorBox.Size = new System.Drawing.Size(24, 21);
             this.marcadorBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -204,7 +210,7 @@
             this.caligraficoBox.BackColor = System.Drawing.Color.White;
             this.caligraficoBox.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("caligraficoBox.BackgroundImage")));
             this.caligraficoBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.caligraficoBox.Location = new System.Drawing.Point(39, 17);
+            this.caligraficoBox.Location = new System.Drawing.Point(37, 17);
             this.caligraficoBox.Name = "caligraficoBox";
             this.caligraficoBox.Size = new System.Drawing.Size(24, 21);
             this.caligraficoBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -307,6 +313,8 @@
             // btn_hexagon
             // 
             this.btn_hexagon.BackColor = System.Drawing.Color.White;
+            this.btn_hexagon.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_hexagon.BackgroundImage")));
+            this.btn_hexagon.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btn_hexagon.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_hexagon.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_hexagon.ForeColor = System.Drawing.Color.Transparent;
@@ -314,7 +322,6 @@
             this.btn_hexagon.Name = "btn_hexagon";
             this.btn_hexagon.Size = new System.Drawing.Size(29, 28);
             this.btn_hexagon.TabIndex = 12;
-            this.btn_hexagon.Text = "button1";
             this.btn_hexagon.UseVisualStyleBackColor = false;
             this.btn_hexagon.Click += new System.EventHandler(this.btn_hexagon_Click);
             // 
@@ -330,13 +337,14 @@
             this.btn_pentagon.Name = "btn_pentagon";
             this.btn_pentagon.Size = new System.Drawing.Size(29, 28);
             this.btn_pentagon.TabIndex = 11;
-            this.btn_pentagon.Text = "button4";
             this.btn_pentagon.UseVisualStyleBackColor = false;
             this.btn_pentagon.Click += new System.EventHandler(this.btn_pentagon_Click);
             // 
             // btn_heart
             // 
             this.btn_heart.BackColor = System.Drawing.Color.White;
+            this.btn_heart.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_heart.BackgroundImage")));
+            this.btn_heart.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btn_heart.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_heart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_heart.ForeColor = System.Drawing.Color.Transparent;
@@ -392,7 +400,6 @@
             this.btn_ellipse.Name = "btn_ellipse";
             this.btn_ellipse.Size = new System.Drawing.Size(31, 28);
             this.btn_ellipse.TabIndex = 5;
-            this.btn_ellipse.Text = "Ellipse";
             this.btn_ellipse.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btn_ellipse.UseVisualStyleBackColor = false;
             this.btn_ellipse.Click += new System.EventHandler(this.btn_ellipse_Click);
@@ -438,32 +445,34 @@
             // btn_save
             // 
             this.btn_save.BackColor = System.Drawing.Color.White;
+            this.btn_save.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_save.BackgroundImage")));
+            this.btn_save.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btn_save.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.btn_save.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
             this.btn_save.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_save.ForeColor = System.Drawing.Color.Black;
+            this.btn_save.ForeColor = System.Drawing.Color.Transparent;
             this.btn_save.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btn_save.Location = new System.Drawing.Point(822, 14);
+            this.btn_save.Location = new System.Drawing.Point(820, 14);
             this.btn_save.Name = "btn_save";
-            this.btn_save.Size = new System.Drawing.Size(66, 21);
+            this.btn_save.Size = new System.Drawing.Size(39, 35);
             this.btn_save.TabIndex = 9;
-            this.btn_save.Text = "Save";
             this.btn_save.UseVisualStyleBackColor = false;
             this.btn_save.Click += new System.EventHandler(this.btn_save_Click);
             // 
             // btn_clear
             // 
             this.btn_clear.BackColor = System.Drawing.Color.White;
+            this.btn_clear.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_clear.BackgroundImage")));
+            this.btn_clear.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btn_clear.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.btn_clear.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
             this.btn_clear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_clear.ForeColor = System.Drawing.Color.Black;
+            this.btn_clear.ForeColor = System.Drawing.Color.Transparent;
             this.btn_clear.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btn_clear.Location = new System.Drawing.Point(822, 43);
+            this.btn_clear.Location = new System.Drawing.Point(820, 56);
             this.btn_clear.Name = "btn_clear";
-            this.btn_clear.Size = new System.Drawing.Size(66, 21);
+            this.btn_clear.Size = new System.Drawing.Size(39, 33);
             this.btn_clear.TabIndex = 8;
-            this.btn_clear.Text = "Clear";
             this.btn_clear.UseVisualStyleBackColor = false;
             this.btn_clear.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -473,7 +482,7 @@
             this.color_picker.Image = global::PaintP.Properties.Resources.palette;
             this.color_picker.Location = new System.Drawing.Point(12, 22);
             this.color_picker.Name = "color_picker";
-            this.color_picker.Size = new System.Drawing.Size(223, 61);
+            this.color_picker.Size = new System.Drawing.Size(241, 61);
             this.color_picker.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.color_picker.TabIndex = 8;
             this.color_picker.TabStop = false;
@@ -490,7 +499,7 @@
             this.panel3.Controls.Add(this.btn_fill);
             this.panel3.Controls.Add(this.btn_pencil);
             this.panel3.Controls.Add(this.btn_eraser);
-            this.panel3.Location = new System.Drawing.Point(241, 14);
+            this.panel3.Location = new System.Drawing.Point(259, 14);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(178, 74);
             this.panel3.TabIndex = 3;
@@ -517,7 +526,7 @@
             this.btn_texto.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_texto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_texto.ForeColor = System.Drawing.Color.Transparent;
-            this.btn_texto.Location = new System.Drawing.Point(137, 8);
+            this.btn_texto.Location = new System.Drawing.Point(137, 7);
             this.btn_texto.Name = "btn_texto";
             this.btn_texto.Size = new System.Drawing.Size(29, 28);
             this.btn_texto.TabIndex = 13;
@@ -610,17 +619,18 @@
             this.panel2.BackColor = System.Drawing.SystemColors.ControlLight;
             this.panel2.Controls.Add(this.trackBar1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(0, 527);
+            this.panel2.Location = new System.Drawing.Point(0, 521);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(900, 23);
+            this.panel2.Size = new System.Drawing.Size(900, 29);
             this.panel2.TabIndex = 1;
             // 
             // trackBar1
             // 
-            this.trackBar1.Location = new System.Drawing.Point(738, 0);
+            this.trackBar1.Location = new System.Drawing.Point(769, 3);
             this.trackBar1.Name = "trackBar1";
-            this.trackBar1.Size = new System.Drawing.Size(121, 45);
+            this.trackBar1.Size = new System.Drawing.Size(119, 45);
             this.trackBar1.TabIndex = 0;
+            this.trackBar1.Scroll += new System.EventHandler(this.trackBar1_Scroll);
             // 
             // pic
             // 
@@ -641,7 +651,8 @@
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.archivoToolStripMenuItem});
+            this.archivoToolStripMenuItem,
+            this.verToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(900, 24);
@@ -653,23 +664,73 @@
             // 
             this.archivoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.nuevoToolStripMenuItem,
-            this.abrirToolStripMenuItem});
+            this.abrirToolStripMenuItem,
+            this.guardarToolStripMenuItem});
             this.archivoToolStripMenuItem.Name = "archivoToolStripMenuItem";
             this.archivoToolStripMenuItem.Size = new System.Drawing.Size(60, 20);
             this.archivoToolStripMenuItem.Text = "Archivo";
             // 
             // nuevoToolStripMenuItem
             // 
+            this.nuevoToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.nuevoToolStripMenuItem.Name = "nuevoToolStripMenuItem";
-            this.nuevoToolStripMenuItem.Size = new System.Drawing.Size(109, 22);
+            this.nuevoToolStripMenuItem.Size = new System.Drawing.Size(180, 23);
             this.nuevoToolStripMenuItem.Text = "Nuevo";
             this.nuevoToolStripMenuItem.Click += new System.EventHandler(this.nuevoToolStripMenuItem_Click);
             // 
             // abrirToolStripMenuItem
             // 
+            this.abrirToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.abrirToolStripMenuItem.Name = "abrirToolStripMenuItem";
-            this.abrirToolStripMenuItem.Size = new System.Drawing.Size(109, 22);
+            this.abrirToolStripMenuItem.Size = new System.Drawing.Size(240, 23);
             this.abrirToolStripMenuItem.Text = "Abrir";
+            this.abrirToolStripMenuItem.Click += new System.EventHandler(this.abrirToolStripMenuItem_Click);
+            // 
+            // guardarToolStripMenuItem
+            // 
+            this.guardarToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.pNGToolStripMenuItem,
+            this.jPGToolStripMenuItem});
+            this.guardarToolStripMenuItem.Name = "guardarToolStripMenuItem";
+            this.guardarToolStripMenuItem.Size = new System.Drawing.Size(300, 22);
+            this.guardarToolStripMenuItem.Text = "Guardar";
+            // 
+            // pNGToolStripMenuItem
+            // 
+            this.pNGToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.pNGToolStripMenuItem.Name = "pNGToolStripMenuItem";
+            this.pNGToolStripMenuItem.Size = new System.Drawing.Size(180, 23);
+            this.pNGToolStripMenuItem.Text = ".PNG";
+            this.pNGToolStripMenuItem.Click += new System.EventHandler(this.pNGToolStripMenuItem_Click);
+            // 
+            // jPGToolStripMenuItem
+            // 
+            this.jPGToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.jPGToolStripMenuItem.Name = "jPGToolStripMenuItem";
+            this.jPGToolStripMenuItem.Size = new System.Drawing.Size(240, 23);
+            this.jPGToolStripMenuItem.Text = ".JPG";
+            this.jPGToolStripMenuItem.Click += new System.EventHandler(this.jPGToolStripMenuItem_Click);
+            // 
+            // verToolStripMenuItem
+            // 
+            this.verToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.zoomToolStripMenuItem});
+            this.verToolStripMenuItem.Name = "verToolStripMenuItem";
+            this.verToolStripMenuItem.Size = new System.Drawing.Size(35, 20);
+            this.verToolStripMenuItem.Text = "Ver";
+            // 
+            // zoomToolStripMenuItem
+            // 
+            this.zoomToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.zoomToolStripMenuItem.Name = "zoomToolStripMenuItem";
+            this.zoomToolStripMenuItem.Size = new System.Drawing.Size(100, 23);
+            // 
+            // anteriorToolStripMenuItem
+            // 
+            this.anteriorToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("anteriorToolStripMenuItem.Image")));
+            this.anteriorToolStripMenuItem.Name = "anteriorToolStripMenuItem";
+            this.anteriorToolStripMenuItem.Size = new System.Drawing.Size(78, 20);
+            this.anteriorToolStripMenuItem.Text = "Anterior";
             // 
             // Form1
             // 
@@ -724,11 +785,8 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.PictureBox color_picker;
         private System.Windows.Forms.Button btn_clear;
-        private System.Windows.Forms.Button btn_save;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem archivoToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem nuevoToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem abrirToolStripMenuItem;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Button btn_pentagon;
         private System.Windows.Forms.Button btn_heart;
@@ -751,6 +809,15 @@
         private System.Windows.Forms.PictureBox aerografoBox;
         private System.Windows.Forms.PictureBox caligraficoBox;
         private System.Windows.Forms.PictureBox pincelBox;
+        private System.Windows.Forms.ToolStripTextBox nuevoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem guardarToolStripMenuItem;
+        private System.Windows.Forms.ToolStripTextBox pNGToolStripMenuItem;
+        private System.Windows.Forms.ToolStripTextBox jPGToolStripMenuItem;
+        private System.Windows.Forms.Button btn_save;
+        private System.Windows.Forms.ToolStripTextBox abrirToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem verToolStripMenuItem;
+        private System.Windows.Forms.ToolStripTextBox zoomToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem anteriorToolStripMenuItem;
     }
 }
 
