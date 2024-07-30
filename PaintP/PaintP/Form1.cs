@@ -447,13 +447,23 @@ namespace PaintP
 
         private void btn_save_Click(object sender, EventArgs e)
         {
-            var sfd=new SaveFileDialog();
-            sfd.Filter = "Image(*.jpg)|*.jpg|(*.*|*.*";
-            if(sfd.ShowDialog() == DialogResult.OK)
+            var sfd = new SaveFileDialog();
+            sfd.Filter = "Image (*.png)|*.png|Image (*.jpg)|*.jpg|All files (*.*)|*.*"; // Filtro para PNG y JPG
+            if (sfd.ShowDialog() == DialogResult.OK)
             {
-                Bitmap btm = bm.Clone(new Rectangle(0,0,pic.Width,pic.Height),bm.PixelFormat);
-                btm.Save(sfd.FileName,ImageFormat.Jpeg);
-                MessageBox.Show("Su imagen a sido guardada exitosamente");
+                Bitmap btm = bm.Clone(new Rectangle(0, 0, pic.Width, pic.Height), bm.PixelFormat);
+
+                // Guardar en el formato seleccionado
+                if (sfd.FileName.EndsWith(".png"))
+                {
+                    btm.Save(sfd.FileName, ImageFormat.Png); // Guardar como PNG
+                }
+                else if (sfd.FileName.EndsWith(".jpg"))
+                {
+                    btm.Save(sfd.FileName, ImageFormat.Jpeg); // Guardar como JPG
+                }
+
+                MessageBox.Show("Su imagen ha sido guardada exitosamente");
             }
         }
 
