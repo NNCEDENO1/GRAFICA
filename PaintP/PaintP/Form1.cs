@@ -9,18 +9,6 @@ namespace PaintP
 {
     public partial class Form1 : Form
     {
-        public Form1()
-        {
-            InitializeComponent();
-
-            this.Width = 950; //falta que cuando se haga grande se redimensiona 
-            this.Height = 700;
-            bm = new Bitmap(pic.Width, pic.Height);
-            g = Graphics.FromImage(bm);
-            g.Clear(Color.White);
-            pic.Image = bm;
-        }
-
         Bitmap bm;
         Graphics g;
         bool paint = false;
@@ -29,90 +17,163 @@ namespace PaintP
         Pen erase = new Pen(Color.White, 10);
         int index;
         int x, y, sX, sY, cX, cY;
-
         ColorDialog cd = new ColorDialog();
         Color new_color;
+        Point lastPoint; // Punto anterior
+        BrushDraw brushes = new BrushDraw(); // Instancia de BrushDraw
+        string currentBrush = ""; // Pincel actual
+        string currentTool = ""; // Herramienta actual
+        Color currentColor = Color.Black;
 
+        public Form1()
+        {
+            InitializeComponent();
+
+            this.Width = 950;
+            this.Height = 700;
+            bm = new Bitmap(pic.Width, pic.Height);
+            g = Graphics.FromImage(bm);
+            g.Clear(Color.White);
+            pic.Image = bm;
+
+            p = new Pen(Color.Black, 1);
+            erase = new Pen(Color.White, 10);
+        }
+
+       
         private void pic_MouseDown(object sender, MouseEventArgs e)
         {
+           
             paint = true;
-            py = e.Location;
-            cX = e.X;
-            cY = e.Y;
+            lastPoint = e.Location;
         }
 
         private void pic_MouseMove(object sender, MouseEventArgs e)
         {
             if (paint)
             {
-                if (index == 1) // Pencil
+                // Obtener el objeto Graphics del Bitmap
+                using (Graphics g = Graphics.FromImage(bm))
                 {
-                    px = e.Location;
-                    g.DrawLine(p, px, py);
-                    py = px;
+                    // Seleccionar la herramienta de dibujo
+                    if (index == 1) // Lápiz
+                    {
+                        g.DrawLine(p, lastPoint, e.Location);
+                        lastPoint = e.Location; // Actualizar la última posición
+                    }
+                    else if (index == 2) // Borrador
+                    {
+                        g.DrawLine(erase, lastPoint, e.Location);
+                        lastPoint = e.Location; // Actualizar la última posición
+                    }
+                    else if (!string.IsNullOrEmpty(currentBrush))
+                    {
+                        // Dibuja con el pincel seleccionado
+                        switch (currentBrush)
+                        {
+                            case "Oleo":
+                                brushes.DrawOilBrush(g, lastPoint, e.Location);
+                                break;
+                            case "Aerografo":
+                                brushes.DrawAirBrush(g, lastPoint, e.Location);
+                                break;
+                            case "Acuarela":
+                                brushes.DrawWaterColorBrush(g, lastPoint, e.Location);
+                                break;
+                            case "Crayon":
+                                brushes.DrawCrayonBrush(g, lastPoint, e.Location);
+                                break;
+                            case "Marcador":
+                                brushes.DrawMarkerBrush(g, lastPoint, e.Location);
+                                break;
+                            case "Caligrafia":
+                                brushes.DrawCalligraphyBrush(g, lastPoint, e.Location);
+                                break;
+                            case "Lapiz":
+                                brushes.DrawPencilBrush(g, lastPoint, e.Location);
+                                break;
+                        }
+                        lastPoint = e.Location; // Actualizar la última posición
+                    }
                 }
-                else if (index == 2) // Eraser
-                {
-                    px = e.Location;
-                    g.DrawLine(erase, px, py);
-                    py = px;
-                }
-            }
-            pic.Refresh();
 
-            x = e.X;
-            y = e.Y;
-            sX = e.X - cX;
-            sY = e.Y - cY;
+                // Actualizar el PictureBox
+                pic.Invalidate();
+            }
         }
 
         private void pic_MouseUp(object sender, MouseEventArgs e)
         {
-            paint = false;
+            paint = false; // Dejar de pintar
 
-            sX = x - cX;
-            sY = y - cY;
-
-            switch (index)
+            // Actualizar el bitmap con la última línea dibujada
+            using (Graphics g = Graphics.FromImage(bm))
             {
-                case 3: // Ellipse
-                    g.DrawEllipse(p, cX, cY, sX, sY);
-                    break;
-                case 4: // Rectangle
-                    g.DrawRectangle(p, cX, cY, sX, sY);
-                    break;
-                case 5: // Line
-                    g.DrawLine(p, cX, cY, x, y);
-                    break;
-                case 6: // Triangle
-                    DrawTriangle(g, p, cX, cY, sX, sY);
-                    break;
-                case 7: // Star
-                    DrawStar(g, p, cX, cY, sX);
-                    break;
-                case 8: // Heart
-                    DrawHeart(g, p, cX, cY, sX);
-                    break;
-                case 9: // Pentagon
-                    DrawPentagon(g, p, cX, cY, sX);
-                    break;
-                case 10: // Hexagon
-                    DrawHexagon(g, p, cX, cY, sX);
-                    break;
-                case 11: // Arrow Up
-                    DrawArrow(g, p, cX, cY, true);
-                    break;
-                case 12: // Arrow Down
-                    DrawArrow(g, p, cX, cY, false);
-                    break;
-                case 13: // Arrow Right
-                    DrawArrow(g, p, cX, cY, true, false);
-                    break;
-                case 14: // Arrow Left
-                    DrawArrow(g, p, cX, cY, false, false);
-                    break;
+                if (index == 1) // Lápiz
+                {
+                    g.DrawLine(p, lastPoint, e.Location);
+                }
+                else if (index == 2) // Borrador
+                {
+                    g.DrawLine(erase, lastPoint, e.Location);
+                }
+                else // Dibujo de formas
+                {
+                    int width = e.X - lastPoint.X;
+                    int height = e.Y - lastPoint.Y;
+
+                    switch (index)
+                    {
+                        case 3: // Elipse
+                            g.DrawEllipse(p, lastPoint.X, lastPoint.Y, width, height);
+                            break;
+                        case 4: // Rectángulo
+                            g.DrawRectangle(p, lastPoint.X, lastPoint.Y, width, height);
+                            break;
+                        case 5: // Línea
+                            g.DrawLine(p, lastPoint, e.Location);
+                            break;
+                        case 6: // Triángulo
+                            DrawTriangle(g, p, lastPoint.X, lastPoint.Y, width, height);
+                            break;
+                        case 7: // Estrella
+                            DrawStar(g, p, lastPoint.X, lastPoint.Y, Math.Max(width, height) / 2);
+                            break;
+                        case 8: // Corazón
+                            DrawHeart(g, p, lastPoint.X, lastPoint.Y, Math.Max(width, height) / 2);
+                            break;
+                        case 9: // Pentágono
+                            DrawPentagon(g, p, lastPoint.X, lastPoint.Y, Math.Max(width, height) / 2);
+                            break;
+                        case 10: // Hexágono
+                            DrawHexagon(g, p, lastPoint.X, lastPoint.Y, Math.Max(width, height) / 2);
+                            break;
+                        case 11: // Flecha hacia arriba
+                            DrawArrow(g, p, lastPoint.X, lastPoint.Y, true);
+                            break;
+                        case 12: // Flecha hacia abajo
+                            DrawArrow(g, p, lastPoint.X, lastPoint.Y, false);
+                            break;
+                        case 13: // Flecha hacia la derecha
+                            DrawArrow(g, p, lastPoint.X, lastPoint.Y, true, false);
+                            break;
+                        case 14: // Flecha hacia la izquierda
+                            DrawArrow(g, p, lastPoint.X, lastPoint.Y, false, false);
+                            break;
+                    }
+                }
             }
-            pic.Refresh(); // Refresh to update the PictureBox
+
+            pic.Refresh(); // Refrescar para actualizar el PictureBox
+        }
+        private void btn_color_Click(object sender, EventArgs e)
+        {
+            if (cd.ShowDialog() == DialogResult.OK)
+            {
+                new_color = cd.Color;
+                pic_color.BackColor = new_color;
+                p.Color = new_color; // Cambiar el color del lápiz
+            }
         }
 
         private void DrawTriangle(Graphics g, Pen pen, int x, int y, int width, int height)
@@ -240,15 +301,7 @@ namespace PaintP
             }
         }
 
-        private void btn_color_Click(object sender, EventArgs e)
-        {
-            if (cd.ShowDialog() == DialogResult.OK)
-            {
-                new_color = cd.Color;
-                pic_color.BackColor = new_color;
-                p.Color = new_color;
-            }
-        }
+
 
         static Point set_point(PictureBox pb, Point pt)
         {
@@ -258,6 +311,84 @@ namespace PaintP
         }
 
         private void nuevoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+        private void DisableFontControls()
+        {
+            // Implementa la lógica para deshabilitar controles relacionados con fuentes, si es necesario
+        }
+
+        private void pincelBox_Click(object sender, EventArgs e)
+        {
+            currentBrush = "Pincel";
+            pic.Cursor = Cursors.Cross;
+            currentTool = null;
+            DisableFontControls();
+        }
+
+        private void caligraficoBox_Click(object sender, EventArgs e)
+        {
+            currentBrush = "Caligrafia";
+            pic.Cursor = Cursors.Cross;
+            currentTool = null;
+            DisableFontControls();
+        }
+
+        private void aerografoBox_Click(object sender, EventArgs e)
+        {
+            currentBrush = "Aerografo";
+            pic.Cursor = Cursors.Cross;
+            currentTool = null;
+            DisableFontControls();
+        }
+
+        private void oleoBox_Click(object sender, EventArgs e)
+        {
+            currentBrush = "Oleo";
+            pic.Cursor = Cursors.Cross;
+            currentTool = null;
+            DisableFontControls();
+        }
+
+        private void crayonBox_Click(object sender, EventArgs e)
+        {
+            currentBrush = "Crayon";
+            pic.Cursor = Cursors.Cross;
+            currentTool = null;
+            DisableFontControls();
+        }
+
+        private void marcadorBox_Click(object sender, EventArgs e)
+        {
+            currentBrush = "Marcador";
+            pic.Cursor = Cursors.Cross;
+            currentTool = null;
+            DisableFontControls();
+        }
+
+        private void lapizPincelBox_Click(object sender, EventArgs e)
+        {
+            currentBrush = "Lapiz";
+            pic.Cursor = Cursors.Cross;
+            currentTool = null;
+            DisableFontControls();
+        }
+
+        private void acuarelaBox_Click(object sender, EventArgs e)
+        {
+            currentBrush = "Acuarela";
+            pic.Cursor = Cursors.Cross;
+            currentTool = null;
+            DisableFontControls();
+        }
+
+        private void color_picker_Click(object sender, EventArgs e)
         {
 
         }

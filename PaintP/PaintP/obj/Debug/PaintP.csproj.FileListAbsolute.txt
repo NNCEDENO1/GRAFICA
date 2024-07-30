@@ -8,3 +8,13 @@ C:\Users\lilit\source\repos\PaintP\PaintP\obj\Debug\PaintP.csproj.GenerateResour
 C:\Users\lilit\source\repos\PaintP\PaintP\obj\Debug\PaintP.csproj.CoreCompileInputs.cache
 C:\Users\lilit\source\repos\PaintP\PaintP\obj\Debug\PaintP.exe
 C:\Users\lilit\source\repos\PaintP\PaintP\obj\Debug\PaintP.pdb
+C:\Users\USUARIO\GRAFICA\PaintP\PaintP\bin\Debug\PaintP.exe.config
+C:\Users\USUARIO\GRAFICA\PaintP\PaintP\bin\Debug\PaintP.exe
+C:\Users\USUARIO\GRAFICA\PaintP\PaintP\bin\Debug\PaintP.pdb
+C:\Users\USUARIO\GRAFICA\PaintP\PaintP\obj\Debug\PaintP.csproj.AssemblyReference.cache
+C:\Users\USUARIO\GRAFICA\PaintP\PaintP\obj\Debug\PaintP.Form1.resources
+C:\Users\USUARIO\GRAFICA\PaintP\PaintP\obj\Debug\PaintP.Properties.Resources.resources
+C:\Users\USUARIO\GRAFICA\PaintP\PaintP\obj\Debug\PaintP.csproj.GenerateResource.cache
+C:\Users\USUARIO\GRAFICA\PaintP\PaintP\obj\Debug\PaintP.csproj.CoreCompileInputs.cache
+C:\Users\USUARIO\GRAFICA\PaintP\PaintP\obj\Debug\PaintP.exe
+C:\Users\USUARIO\GRAFICA\PaintP\PaintP\obj\Debug\PaintP.pdb
