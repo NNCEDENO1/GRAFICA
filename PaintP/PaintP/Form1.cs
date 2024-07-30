@@ -25,6 +25,7 @@ namespace PaintP
         string currentTool = ""; // Herramienta actual
         Color currentColor = Color.Black;
 
+        
         public Form1()
         {
             InitializeComponent();
@@ -38,9 +39,22 @@ namespace PaintP
 
             p = new Pen(Color.Black, 1);
             erase = new Pen(Color.White, 10);
+
+            this.Resize += new EventHandler(Form1_Resize);
         }
 
-       
+        private void Form1_Resize(object sender, EventArgs e)
+        {
+            // Ajusta el tamaño del PictureBox
+            pic.Width = this.ClientSize.Width - 20; // Ajusta según el borde
+            pic.Height = this.ClientSize.Height - 100; // Ajusta según la barra de menú y otros controles
+
+            // Ajustar otros controles si es necesario
+            btn_color.Location = new Point(10, this.ClientSize.Height - 60);
+            btn_fill.Location = new Point(100, this.ClientSize.Height - 60);
+            btn_save.Location = new Point(190, this.ClientSize.Height - 60);
+        }
+
         private void pic_MouseDown(object sender, MouseEventArgs e)
         {
            

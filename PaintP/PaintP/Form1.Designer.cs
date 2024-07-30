@@ -30,6 +30,15 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.oleoBox = new System.Windows.Forms.PictureBox();
+            this.lapizPincelBox = new System.Windows.Forms.PictureBox();
+            this.acuarelaBox = new System.Windows.Forms.PictureBox();
+            this.crayonBox = new System.Windows.Forms.PictureBox();
+            this.marcadorBox = new System.Windows.Forms.PictureBox();
+            this.aerografoBox = new System.Windows.Forms.PictureBox();
+            this.caligraficoBox = new System.Windows.Forms.PictureBox();
+            this.pincelBox = new System.Windows.Forms.PictureBox();
             this.panel4 = new System.Windows.Forms.Panel();
             this.btn_arrow_left = new System.Windows.Forms.Button();
             this.btn_arrow_right = new System.Windows.Forms.Button();
@@ -61,23 +70,7 @@
             this.archivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.nuevoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.abrirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.oleoBox = new System.Windows.Forms.PictureBox();
-            this.lapizPincelBox = new System.Windows.Forms.PictureBox();
-            this.acuarelaBox = new System.Windows.Forms.PictureBox();
-            this.crayonBox = new System.Windows.Forms.PictureBox();
-            this.marcadorBox = new System.Windows.Forms.PictureBox();
-            this.aerografoBox = new System.Windows.Forms.PictureBox();
-            this.caligraficoBox = new System.Windows.Forms.PictureBox();
-            this.pincelBox = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
-            this.panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.color_picker)).BeginInit();
-            this.panel3.SuspendLayout();
-            this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pic)).BeginInit();
-            this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.oleoBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lapizPincelBox)).BeginInit();
@@ -87,6 +80,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.aerografoBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.caligraficoBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pincelBox)).BeginInit();
+            this.panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.color_picker)).BeginInit();
+            this.panel3.SuspendLayout();
+            this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic)).BeginInit();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -103,6 +103,127 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(900, 100);
             this.panel1.TabIndex = 0;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.oleoBox);
+            this.groupBox1.Controls.Add(this.lapizPincelBox);
+            this.groupBox1.Controls.Add(this.acuarelaBox);
+            this.groupBox1.Controls.Add(this.crayonBox);
+            this.groupBox1.Controls.Add(this.marcadorBox);
+            this.groupBox1.Controls.Add(this.aerografoBox);
+            this.groupBox1.Controls.Add(this.caligraficoBox);
+            this.groupBox1.Controls.Add(this.pincelBox);
+            this.groupBox1.Location = new System.Drawing.Point(682, 14);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
+            this.groupBox1.Size = new System.Drawing.Size(135, 74);
+            this.groupBox1.TabIndex = 17;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Brushes";
+            // 
+            // oleoBox
+            // 
+            this.oleoBox.BackColor = System.Drawing.Color.White;
+            this.oleoBox.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("oleoBox.BackgroundImage")));
+            this.oleoBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.oleoBox.Location = new System.Drawing.Point(39, 45);
+            this.oleoBox.Name = "oleoBox";
+            this.oleoBox.Size = new System.Drawing.Size(24, 21);
+            this.oleoBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.oleoBox.TabIndex = 30;
+            this.oleoBox.TabStop = false;
+            this.oleoBox.Click += new System.EventHandler(this.oleoBox_Click);
+            // 
+            // lapizPincelBox
+            // 
+            this.lapizPincelBox.BackColor = System.Drawing.Color.White;
+            this.lapizPincelBox.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("lapizPincelBox.BackgroundImage")));
+            this.lapizPincelBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.lapizPincelBox.Location = new System.Drawing.Point(5, 95);
+            this.lapizPincelBox.Name = "lapizPincelBox";
+            this.lapizPincelBox.Size = new System.Drawing.Size(24, 21);
+            this.lapizPincelBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.lapizPincelBox.TabIndex = 29;
+            this.lapizPincelBox.TabStop = false;
+            // 
+            // acuarelaBox
+            // 
+            this.acuarelaBox.BackColor = System.Drawing.Color.White;
+            this.acuarelaBox.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("acuarelaBox.BackgroundImage")));
+            this.acuarelaBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.acuarelaBox.Location = new System.Drawing.Point(39, 95);
+            this.acuarelaBox.Name = "acuarelaBox";
+            this.acuarelaBox.Size = new System.Drawing.Size(24, 21);
+            this.acuarelaBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.acuarelaBox.TabIndex = 28;
+            this.acuarelaBox.TabStop = false;
+            // 
+            // crayonBox
+            // 
+            this.crayonBox.BackColor = System.Drawing.Color.White;
+            this.crayonBox.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("crayonBox.BackgroundImage")));
+            this.crayonBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.crayonBox.Location = new System.Drawing.Point(69, 45);
+            this.crayonBox.Name = "crayonBox";
+            this.crayonBox.Size = new System.Drawing.Size(24, 21);
+            this.crayonBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.crayonBox.TabIndex = 27;
+            this.crayonBox.TabStop = false;
+            this.crayonBox.Click += new System.EventHandler(this.crayonBox_Click);
+            // 
+            // marcadorBox
+            // 
+            this.marcadorBox.BackColor = System.Drawing.Color.White;
+            this.marcadorBox.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("marcadorBox.BackgroundImage")));
+            this.marcadorBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.marcadorBox.Location = new System.Drawing.Point(69, 15);
+            this.marcadorBox.Name = "marcadorBox";
+            this.marcadorBox.Size = new System.Drawing.Size(24, 21);
+            this.marcadorBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.marcadorBox.TabIndex = 26;
+            this.marcadorBox.TabStop = false;
+            this.marcadorBox.Click += new System.EventHandler(this.marcadorBox_Click);
+            // 
+            // aerografoBox
+            // 
+            this.aerografoBox.BackColor = System.Drawing.Color.White;
+            this.aerografoBox.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("aerografoBox.BackgroundImage")));
+            this.aerografoBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.aerografoBox.Location = new System.Drawing.Point(5, 45);
+            this.aerografoBox.Name = "aerografoBox";
+            this.aerografoBox.Size = new System.Drawing.Size(24, 21);
+            this.aerografoBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.aerografoBox.TabIndex = 25;
+            this.aerografoBox.TabStop = false;
+            this.aerografoBox.Click += new System.EventHandler(this.aerografoBox_Click);
+            // 
+            // caligraficoBox
+            // 
+            this.caligraficoBox.BackColor = System.Drawing.Color.White;
+            this.caligraficoBox.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("caligraficoBox.BackgroundImage")));
+            this.caligraficoBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.caligraficoBox.Location = new System.Drawing.Point(39, 17);
+            this.caligraficoBox.Name = "caligraficoBox";
+            this.caligraficoBox.Size = new System.Drawing.Size(24, 21);
+            this.caligraficoBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.caligraficoBox.TabIndex = 24;
+            this.caligraficoBox.TabStop = false;
+            this.caligraficoBox.Click += new System.EventHandler(this.caligraficoBox_Click);
+            // 
+            // pincelBox
+            // 
+            this.pincelBox.BackColor = System.Drawing.Color.White;
+            this.pincelBox.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pincelBox.BackgroundImage")));
+            this.pincelBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pincelBox.Location = new System.Drawing.Point(5, 18);
+            this.pincelBox.Name = "pincelBox";
+            this.pincelBox.Size = new System.Drawing.Size(24, 21);
+            this.pincelBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pincelBox.TabIndex = 23;
+            this.pincelBox.TabStop = false;
+            this.pincelBox.Click += new System.EventHandler(this.pincelBox_Click);
             // 
             // panel4
             // 
@@ -229,6 +350,8 @@
             // btn_star
             // 
             this.btn_star.BackColor = System.Drawing.Color.White;
+            this.btn_star.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_star.BackgroundImage")));
+            this.btn_star.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btn_star.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_star.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_star.ForeColor = System.Drawing.Color.Transparent;
@@ -242,6 +365,8 @@
             // btn_triangle
             // 
             this.btn_triangle.BackColor = System.Drawing.Color.White;
+            this.btn_triangle.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_triangle.BackgroundImage")));
+            this.btn_triangle.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btn_triangle.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_triangle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_triangle.ForeColor = System.Drawing.Color.Transparent;
@@ -255,12 +380,13 @@
             // btn_ellipse
             // 
             this.btn_ellipse.BackColor = System.Drawing.Color.White;
+            this.btn_ellipse.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_ellipse.BackgroundImage")));
+            this.btn_ellipse.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btn_ellipse.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_ellipse.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.btn_ellipse.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
             this.btn_ellipse.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_ellipse.ForeColor = System.Drawing.Color.Transparent;
-            this.btn_ellipse.Image = global::PaintP.Properties.Resources.circle;
             this.btn_ellipse.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btn_ellipse.Location = new System.Drawing.Point(12, 41);
             this.btn_ellipse.Name = "btn_ellipse";
@@ -274,12 +400,13 @@
             // btn_rect
             // 
             this.btn_rect.BackColor = System.Drawing.Color.White;
+            this.btn_rect.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_rect.BackgroundImage")));
+            this.btn_rect.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btn_rect.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_rect.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.btn_rect.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
             this.btn_rect.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_rect.ForeColor = System.Drawing.Color.Transparent;
-            this.btn_rect.Image = global::PaintP.Properties.Resources.rectangle;
             this.btn_rect.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btn_rect.Location = new System.Drawing.Point(49, 8);
             this.btn_rect.Name = "btn_rect";
@@ -544,127 +671,6 @@
             this.abrirToolStripMenuItem.Size = new System.Drawing.Size(109, 22);
             this.abrirToolStripMenuItem.Text = "Abrir";
             // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.oleoBox);
-            this.groupBox1.Controls.Add(this.lapizPincelBox);
-            this.groupBox1.Controls.Add(this.acuarelaBox);
-            this.groupBox1.Controls.Add(this.crayonBox);
-            this.groupBox1.Controls.Add(this.marcadorBox);
-            this.groupBox1.Controls.Add(this.aerografoBox);
-            this.groupBox1.Controls.Add(this.caligraficoBox);
-            this.groupBox1.Controls.Add(this.pincelBox);
-            this.groupBox1.Location = new System.Drawing.Point(682, 14);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox1.Size = new System.Drawing.Size(135, 74);
-            this.groupBox1.TabIndex = 17;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Brushes";
-            // 
-            // oleoBox
-            // 
-            this.oleoBox.BackColor = System.Drawing.Color.White;
-            this.oleoBox.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("oleoBox.BackgroundImage")));
-            this.oleoBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.oleoBox.Location = new System.Drawing.Point(39, 45);
-            this.oleoBox.Name = "oleoBox";
-            this.oleoBox.Size = new System.Drawing.Size(24, 21);
-            this.oleoBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.oleoBox.TabIndex = 30;
-            this.oleoBox.TabStop = false;
-            this.oleoBox.Click += new System.EventHandler(this.oleoBox_Click);
-            // 
-            // lapizPincelBox
-            // 
-            this.lapizPincelBox.BackColor = System.Drawing.Color.White;
-            this.lapizPincelBox.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("lapizPincelBox.BackgroundImage")));
-            this.lapizPincelBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.lapizPincelBox.Location = new System.Drawing.Point(5, 95);
-            this.lapizPincelBox.Name = "lapizPincelBox";
-            this.lapizPincelBox.Size = new System.Drawing.Size(24, 21);
-            this.lapizPincelBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.lapizPincelBox.TabIndex = 29;
-            this.lapizPincelBox.TabStop = false;
-            // 
-            // acuarelaBox
-            // 
-            this.acuarelaBox.BackColor = System.Drawing.Color.White;
-            this.acuarelaBox.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("acuarelaBox.BackgroundImage")));
-            this.acuarelaBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.acuarelaBox.Location = new System.Drawing.Point(39, 95);
-            this.acuarelaBox.Name = "acuarelaBox";
-            this.acuarelaBox.Size = new System.Drawing.Size(24, 21);
-            this.acuarelaBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.acuarelaBox.TabIndex = 28;
-            this.acuarelaBox.TabStop = false;
-            // 
-            // crayonBox
-            // 
-            this.crayonBox.BackColor = System.Drawing.Color.White;
-            this.crayonBox.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("crayonBox.BackgroundImage")));
-            this.crayonBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.crayonBox.Location = new System.Drawing.Point(69, 45);
-            this.crayonBox.Name = "crayonBox";
-            this.crayonBox.Size = new System.Drawing.Size(24, 21);
-            this.crayonBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.crayonBox.TabIndex = 27;
-            this.crayonBox.TabStop = false;
-            this.crayonBox.Click += new System.EventHandler(this.crayonBox_Click);
-            // 
-            // marcadorBox
-            // 
-            this.marcadorBox.BackColor = System.Drawing.Color.White;
-            this.marcadorBox.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("marcadorBox.BackgroundImage")));
-            this.marcadorBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.marcadorBox.Location = new System.Drawing.Point(69, 15);
-            this.marcadorBox.Name = "marcadorBox";
-            this.marcadorBox.Size = new System.Drawing.Size(24, 21);
-            this.marcadorBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.marcadorBox.TabIndex = 26;
-            this.marcadorBox.TabStop = false;
-            this.marcadorBox.Click += new System.EventHandler(this.marcadorBox_Click);
-            // 
-            // aerografoBox
-            // 
-            this.aerografoBox.BackColor = System.Drawing.Color.White;
-            this.aerografoBox.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("aerografoBox.BackgroundImage")));
-            this.aerografoBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.aerografoBox.Location = new System.Drawing.Point(5, 45);
-            this.aerografoBox.Name = "aerografoBox";
-            this.aerografoBox.Size = new System.Drawing.Size(24, 21);
-            this.aerografoBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.aerografoBox.TabIndex = 25;
-            this.aerografoBox.TabStop = false;
-            this.aerografoBox.Click += new System.EventHandler(this.aerografoBox_Click);
-            // 
-            // caligraficoBox
-            // 
-            this.caligraficoBox.BackColor = System.Drawing.Color.White;
-            this.caligraficoBox.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("caligraficoBox.BackgroundImage")));
-            this.caligraficoBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.caligraficoBox.Location = new System.Drawing.Point(39, 17);
-            this.caligraficoBox.Name = "caligraficoBox";
-            this.caligraficoBox.Size = new System.Drawing.Size(24, 21);
-            this.caligraficoBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.caligraficoBox.TabIndex = 24;
-            this.caligraficoBox.TabStop = false;
-            this.caligraficoBox.Click += new System.EventHandler(this.caligraficoBox_Click);
-            // 
-            // pincelBox
-            // 
-            this.pincelBox.BackColor = System.Drawing.Color.White;
-            this.pincelBox.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pincelBox.BackgroundImage")));
-            this.pincelBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pincelBox.Location = new System.Drawing.Point(5, 18);
-            this.pincelBox.Name = "pincelBox";
-            this.pincelBox.Size = new System.Drawing.Size(24, 21);
-            this.pincelBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pincelBox.TabIndex = 23;
-            this.pincelBox.TabStop = false;
-            this.pincelBox.Click += new System.EventHandler(this.pincelBox_Click);
-            // 
             // Form1
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -679,15 +685,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.panel1.ResumeLayout(false);
-            this.panel4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.color_picker)).EndInit();
-            this.panel3.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pic)).EndInit();
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.oleoBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lapizPincelBox)).EndInit();
@@ -697,6 +694,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.aerografoBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.caligraficoBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pincelBox)).EndInit();
+            this.panel4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.color_picker)).EndInit();
+            this.panel3.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic)).EndInit();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
