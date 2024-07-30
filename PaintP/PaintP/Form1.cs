@@ -25,7 +25,7 @@ namespace PaintP
         string currentTool = ""; // Herramienta actual
         Color currentColor = Color.Black;
 
-        
+
         public Form1()
         {
             InitializeComponent();
@@ -45,14 +45,8 @@ namespace PaintP
 
         private void Form1_Resize(object sender, EventArgs e)
         {
-            // Ajusta el tamaño del PictureBox
-            pic.Width = this.ClientSize.Width - 20; // Ajusta según el borde
-            pic.Height = this.ClientSize.Height - 100; // Ajusta según la barra de menú y otros controles
-
-            // Ajustar otros controles si es necesario
-            btn_color.Location = new Point(10, this.ClientSize.Height - 60);
-            btn_fill.Location = new Point(100, this.ClientSize.Height - 60);
-            btn_save.Location = new Point(190, this.ClientSize.Height - 60);
+            pic.Width = this.ClientSize.Width - 20;
+            pic.Height = this.ClientSize.Height - 100;
         }
 
         private void pic_MouseDown(object sender, MouseEventArgs e)
@@ -66,18 +60,25 @@ namespace PaintP
         {
             if (paint)
             {
-                // Obtener el objeto Graphics del Bitmap
                 using (Graphics g = Graphics.FromImage(bm))
                 {
+<<<<<<< HEAD
                     
                     if (index == 1) // Lápiz
                     {
                         g.DrawLine(p, lastPoint, e.Location);
                         lastPoint = e.Location; 
+=======
+                    if (index == 1) // Lápiz
+                    {
+                        g.DrawLine(p, lastPoint, e.Location);
+                        lastPoint = e.Location;
+>>>>>>> d2033ec0d5d53aee6674875441535f04a6069eea
                     }
                     else if (index == 2) // Borrador
                     {
                         g.DrawLine(erase, lastPoint, e.Location);
+<<<<<<< HEAD
                         lastPoint = e.Location; 
                     }
                     else if (!string.IsNullOrEmpty(currentBrush))
@@ -112,6 +113,17 @@ namespace PaintP
                 }
 
  
+=======
+                        lastPoint = e.Location;
+                    }
+                    else if (!string.IsNullOrEmpty(currentBrush))
+                    {
+                        // Dibuja con el pincel seleccionado
+                        DrawWithBrush(g, e.Location);
+                        lastPoint = e.Location;
+                    }
+                }
+>>>>>>> d2033ec0d5d53aee6674875441535f04a6069eea
                 pic.Invalidate();
             }
         }
@@ -132,53 +144,91 @@ namespace PaintP
                 }
                 else // Dibujo de formas
                 {
-                    int width = e.X - lastPoint.X;
-                    int height = e.Y - lastPoint.Y;
-
-                    switch (index)
-                    {
-                        case 3: // Elipse
-                            g.DrawEllipse(p, lastPoint.X, lastPoint.Y, width, height);
-                            break;
-                        case 4: // Rectángulo
-                            g.DrawRectangle(p, lastPoint.X, lastPoint.Y, width, height);
-                            break;
-                        case 5: // Línea
-                            g.DrawLine(p, lastPoint, e.Location);
-                            break;
-                        case 6: // Triángulo
-                            DrawTriangle(g, p, lastPoint.X, lastPoint.Y, width, height);
-                            break;
-                        case 7: // Estrella
-                            DrawStar(g, p, lastPoint.X, lastPoint.Y, Math.Max(width, height) / 2);
-                            break;
-                        case 8: // Corazón
-                            DrawHeart(g, p, lastPoint.X, lastPoint.Y, Math.Max(width, height) / 2);
-                            break;
-                        case 9: // Pentágono
-                            DrawPentagon(g, p, lastPoint.X, lastPoint.Y, Math.Max(width, height) / 2);
-                            break;
-                        case 10: // Hexágono
-                            DrawHexagon(g, p, lastPoint.X, lastPoint.Y, Math.Max(width, height) / 2);
-                            break;
-                        case 11: // Flecha hacia arriba
-                            DrawArrow(g, p, lastPoint.X, lastPoint.Y, true);
-                            break;
-                        case 12: // Flecha hacia abajo
-                            DrawArrow(g, p, lastPoint.X, lastPoint.Y, false);
-                            break;
-                        case 13: // Flecha hacia la derecha
-                            DrawArrow(g, p, lastPoint.X, lastPoint.Y, true, false);
-                            break;
-                        case 14: // Flecha hacia la izquierda
-                            DrawArrow(g, p, lastPoint.X, lastPoint.Y, false, false);
-                            break;
-                    }
+                    DrawShape(g, e.Location);
                 }
             }
 
+<<<<<<< HEAD
             pic.Refresh(); 
+=======
+            pic.Refresh();
+>>>>>>> d2033ec0d5d53aee6674875441535f04a6069eea
         }
+        private void DrawWithBrush(Graphics g, Point currentPoint)
+        {
+            switch (currentBrush)
+            {
+                case "Oleo":
+                    brushes.DrawOilBrush(g, lastPoint, currentPoint);
+                    break;
+                case "Aerografo":
+                    brushes.DrawAirBrush(g, lastPoint, currentPoint);
+                    break;
+                case "Acuarela":
+                    brushes.DrawWaterColorBrush(g, lastPoint, currentPoint);
+                    break;
+                case "Crayon":
+                    brushes.DrawCrayonBrush(g, lastPoint, currentPoint);
+                    break;
+                case "Marcador":
+                    brushes.DrawMarkerBrush(g, lastPoint, currentPoint);
+                    break;
+                case "Caligrafia":
+                    brushes.DrawCalligraphyBrush(g, lastPoint, currentPoint);
+                    break;
+                case "Lapiz":
+                    brushes.DrawPencilBrush(g, lastPoint, currentPoint);
+                    break;
+            }
+        }
+
+        private void DrawShape(Graphics g, Point currentPoint)
+        {
+            int width = currentPoint.X - lastPoint.X;
+            int height = currentPoint.Y - lastPoint.Y;
+
+            // No es necesario llamar a DrawPen, simplemente usa el pen directamente
+            switch (index)
+            {
+                case 3: // Elipse
+                    g.DrawEllipse(p, lastPoint.X, lastPoint.Y, width, height);
+                    break;
+                case 4: // Rectángulo
+                    g.DrawRectangle(p, lastPoint.X, lastPoint.Y, width, height);
+                    break;
+                case 5: // Línea
+                    g.DrawLine(p, lastPoint, currentPoint);
+                    break;
+                case 6: // Triángulo
+                    DrawTriangle(g, p, lastPoint.X, lastPoint.Y, width, height);
+                    break;
+                case 7: // Estrella
+                    DrawStar(g, p, lastPoint.X, lastPoint.Y, Math.Max(width, height) / 2);
+                    break;
+                case 8: // Corazón
+                    DrawHeart(g, p, lastPoint.X, lastPoint.Y, Math.Max(width, height) / 2);
+                    break;
+                case 9: // Pentágono
+                    DrawPentagon(g, p, lastPoint.X, lastPoint.Y, Math.Max(width, height) / 2);
+                    break;
+                case 10: // Hexágono
+                    DrawHexagon(g, p, lastPoint.X, lastPoint.Y, Math.Max(width, height) / 2);
+                    break;
+                case 11: // Flecha hacia arriba
+                    DrawArrow(g, p, lastPoint.X, lastPoint.Y, true);
+                    break;
+                case 12: // Flecha hacia abajo
+                    DrawArrow(g, p, lastPoint.X, lastPoint.Y, false);
+                    break;
+                case 13: // Flecha hacia la derecha
+                    DrawArrow(g, p, lastPoint.X, lastPoint.Y, true, false);
+                    break;
+                case 14: // Flecha hacia la izquierda
+                    DrawArrow(g, p, lastPoint.X, lastPoint.Y, false, false);
+                    break;
+            }
+        }
+       
         private void btn_color_Click(object sender, EventArgs e)
         {
             if (cd.ShowDialog() == DialogResult.OK)
@@ -373,7 +423,7 @@ namespace PaintP
 
         private void pincelBox_Click(object sender, EventArgs e)
         {
-            currentBrush = "Pincel";
+            currentBrush = "Acuarela";
             pic.Cursor = Cursors.Cross;
             currentTool = null;
             DisableFontControls();
@@ -560,7 +610,7 @@ namespace PaintP
             {
                 Point point = set_point(pic, e.Location);
                 Fill(bm, point.X, point.Y, new_color);
-                pic.Refresh(); // Refresh to update the PictureBox
+                pic.Refresh();
             }
         }
 
