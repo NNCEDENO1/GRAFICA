@@ -47,15 +47,30 @@ namespace VividVista
             picCanvas.MouseUp += PicCanvas_MouseUp;
             picCanvas.Paint += PicCanvas_Paint;
             textBox.Click += textBox_Click;
+            panelText.Visible = false;
+            panelText.Anchor = AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Bottom;
+            panelText.Controls.Add(cmbFontText);
+            panelText.Controls.Add(cmbSizeText);
+            panelText.Controls.Add(picBold);
+
+            panelText.Controls.Add(cmbFontText);
+            panelText.Controls.Add(cmbSizeText);
+            panelText.Controls.Add(picBold);
+            panelText.Controls.Add(picItalics);  
+            panelText.Controls.Add(picSubrayar); 
+            panelText.Controls.Add(picTachar);   
 
             InitializeFontControls();
         }
+
 
         private void MainWindow_Load(object sender, EventArgs e)
         {
             int x = (this.ClientSize.Width - picCanvas.Width) / 2;
             int y = (this.ClientSize.Height - picCanvas.Height) / 2;
             picCanvas.Location = new Point(x, y);
+
+            picCanvas.Height = this.ClientSize.Height - panelText.Height - y;
         }
 
         private void InitializeDrawingBitmap()
@@ -76,40 +91,44 @@ namespace VividVista
             panelText = new Panel
             {
                 BackColor = Color.LightGray,
-                Visible = false
+                Visible = false,
+                Size = new Size(this.ClientSize.Width, 50), // Cambiado a 50
+                Location = new Point(0, this.ClientSize.Height - 50) // Ajustado
             };
-            this.Controls.Add(panelText); 
+            panelText.Anchor = AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Bottom;
+            this.Controls.Add(panelText);
         }
 
         private void InitializeFontControls()
         {
             var fonts = new string[] { "Microsoft Tai Le", "MingLiU_HKSCS-ExtB", "Mistral", "Monotype Corsiva", "MV Boli", "OCR A", "Onyx", "Palatino Linotype", "Papyrus", "Ravie", "Rockwell" };
             cmbFontText.Items.AddRange(fonts);
-            cmbFontText.SelectedItem = "Arial";
-            cmbFontText.Enabled = false; 
+            cmbFontText.SelectedItem = fonts[0];
 
             var sizes = new int[] { 8, 10, 12, 14, 16, 22, 24, 32, 36 };
             foreach (var size in sizes)
             {
                 cmbSizeText.Items.Add(size);
             }
-            cmbSizeText.SelectedItem = 12; 
-            cmbSizeText.Enabled = false; 
-
-            picBold.Click += (s, e) => ToggleFontStyle(FontStyle.Bold);
-            picBold.Enabled = false; 
+            cmbSizeText.SelectedItem = sizes[0];
 
             cmbFontText.SelectedIndexChanged += (s, e) => UpdateFont();
             cmbSizeText.SelectedIndexChanged += (s, e) => UpdateFont();
+            picBold.Click += (s, e) => ToggleFontStyle(FontStyle.Bold);
+            picItalics.Click += (s, e) => ToggleFontStyle(FontStyle.Italic);
+            picSubrayar.Click += (s, e) => ToggleFontStyle(FontStyle.Underline);
+            picTachar.Click += (s, e) => ToggleFontStyle(FontStyle.Strikeout);
 
-            currentFont = new Font("Arial", 12, currentFontStyle);
+            currentFont = new Font(fonts[0], sizes[0], currentFontStyle);
             currentColor = Color.Black;
         }
 
         private void UpdateFont()
         {
             if (cmbFontText.SelectedItem == null || cmbSizeText.SelectedItem == null)
+            {
                 return;
+            }
 
             string selectedFontName = cmbFontText.SelectedItem.ToString();
             float selectedFontSize = float.Parse(cmbSizeText.SelectedItem.ToString());
@@ -118,20 +137,29 @@ namespace VividVista
             if (toolManager.GetCurrentTool() is TextTool textTool)
             {
                 textTool.SetFont(currentFont);
+                textTool.SetColor(currentColor);
             }
         }
 
+
+
         private void ToggleFontStyle(FontStyle style)
         {
-            if ((currentFontStyle & style) == style)
+            currentFontStyle = (currentFontStyle & style) == style ? currentFontStyle & ~style : currentFontStyle | style;
+
+            if (toolManager.GetCurrentTool() is TextTool textTool)
             {
-                currentFontStyle &= ~style;
-            }
-            else
-            {
-                currentFontStyle |= style;
+                textTool.SetFontStyle(currentFontStyle);
             }
             UpdateFont();
+            UpdateFontStyleButtons();
+        }
+        private void UpdateFontStyleButtons()
+        {
+            picBold.BackColor = (currentFontStyle & FontStyle.Bold) == FontStyle.Bold ? Color.LightBlue : Color.Transparent;
+            picItalics.BackColor = (currentFontStyle & FontStyle.Italic) == FontStyle.Italic ? Color.LightBlue : Color.Transparent;
+            picSubrayar.BackColor = (currentFontStyle & FontStyle.Underline) == FontStyle.Underline ? Color.LightBlue : Color.Transparent;
+            picTachar.BackColor = (currentFontStyle & FontStyle.Strikeout) == FontStyle.Strikeout ? Color.LightBlue : Color.Transparent;
         }
 
         private void CursorPositionTimer_Tick(object sender, EventArgs e)
@@ -317,9 +345,8 @@ namespace VividVista
 
         private void textBox_Click(object sender, EventArgs e)
         {
-            {
-                panelText.Visible = true; 
-            }
+            panelText.Visible = true;
+
             if (toolManager == null)
             {
                 toolManager = new ToolManager();
@@ -330,7 +357,7 @@ namespace VividVista
             picCanvas.Cursor = toolManager.GetCurrentCursor();
             currentTool = "Text";
 
-            EnableFontControls(); 
+            EnableFontControls();
         }
 
         private void EnableFontControls()
@@ -338,6 +365,9 @@ namespace VividVista
             cmbFontText.Enabled = true;
             cmbSizeText.Enabled = true;
             picBold.Enabled = true;
+            picItalics.Enabled = true;
+            picSubrayar.Enabled = true;
+            picTachar.Enabled = true;
             UpdateFont();
         }
 
@@ -346,6 +376,9 @@ namespace VividVista
             cmbFontText.Enabled = false;
             cmbSizeText.Enabled = false;
             picBold.Enabled = false;
+            picItalics.Enabled = false;
+            picSubrayar.Enabled = false;
+            picTachar.Enabled = false;
         }
 
         private void DrawLineBox_Click(object sender, EventArgs e)
@@ -490,5 +523,26 @@ namespace VividVista
             panelText.Visible = true;
             panelText.BringToFront();
         }
+
+        private void panelText_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void picItalics_Click(object sender, EventArgs e)
+        {
+            ToggleFontStyle(FontStyle.Italic);
+        }
+
+        private void picSubrayar_Click(object sender, EventArgs e)
+        {
+            ToggleFontStyle(FontStyle.Underline);
+        }
+
+        private void picTachar_Click(object sender, EventArgs e)
+        {
+            ToggleFontStyle(FontStyle.Strikeout);
+        }
+
     }
 }

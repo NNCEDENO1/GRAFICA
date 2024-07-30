@@ -109,10 +109,7 @@
             this.cmbSizeText = new System.Windows.Forms.ComboBox();
             this.picBold = new System.Windows.Forms.PictureBox();
             this.panelText = new System.Windows.Forms.Panel();
-            this.picRelleno = new System.Windows.Forms.PictureBox();
-            this.picADer = new System.Windows.Forms.PictureBox();
             this.picCentro = new System.Windows.Forms.PictureBox();
-            this.picAIzq = new System.Windows.Forms.PictureBox();
             this.picTachar = new System.Windows.Forms.PictureBox();
             this.picSubrayar = new System.Windows.Forms.PictureBox();
             this.picItalics = new System.Windows.Forms.PictureBox();
@@ -165,10 +162,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.picCanvas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBold)).BeginInit();
             this.panelText.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picRelleno)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picADer)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picCentro)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picAIzq)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picTachar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picSubrayar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picItalics)).BeginInit();
@@ -954,66 +948,33 @@
             // 
             // panelText
             // 
+            this.panelText.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panelText.BackColor = System.Drawing.Color.White;
-            this.panelText.Controls.Add(this.picRelleno);
-            this.panelText.Controls.Add(this.picADer);
             this.panelText.Controls.Add(this.picCentro);
-            this.panelText.Controls.Add(this.picAIzq);
             this.panelText.Controls.Add(this.picTachar);
             this.panelText.Controls.Add(this.picSubrayar);
             this.panelText.Controls.Add(this.picItalics);
             this.panelText.Controls.Add(this.cmbFontText);
             this.panelText.Controls.Add(this.picBold);
             this.panelText.Controls.Add(this.cmbSizeText);
-            this.panelText.Location = new System.Drawing.Point(23, 216);
+            this.panelText.Location = new System.Drawing.Point(6, 210);
             this.panelText.Name = "panelText";
-            this.panelText.Size = new System.Drawing.Size(501, 31);
+            this.panelText.Size = new System.Drawing.Size(389, 31);
             this.panelText.TabIndex = 11;
             this.panelText.Visible = false;
-            // 
-            // picRelleno
-            // 
-            this.picRelleno.BackColor = System.Drawing.Color.White;
-            this.picRelleno.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picRelleno.BackgroundImage")));
-            this.picRelleno.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.picRelleno.Location = new System.Drawing.Point(469, 5);
-            this.picRelleno.Name = "picRelleno";
-            this.picRelleno.Size = new System.Drawing.Size(24, 21);
-            this.picRelleno.TabIndex = 26;
-            this.picRelleno.TabStop = false;
-            // 
-            // picADer
-            // 
-            this.picADer.BackColor = System.Drawing.Color.White;
-            this.picADer.BackgroundImage = global::VividVista.Properties.Resources.icons8_align_right_50;
-            this.picADer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.picADer.Location = new System.Drawing.Point(438, 5);
-            this.picADer.Name = "picADer";
-            this.picADer.Size = new System.Drawing.Size(24, 21);
-            this.picADer.TabIndex = 25;
-            this.picADer.TabStop = false;
+            this.panelText.Paint += new System.Windows.Forms.PaintEventHandler(this.panelText_Paint);
             // 
             // picCentro
             // 
             this.picCentro.BackColor = System.Drawing.Color.White;
             this.picCentro.BackgroundImage = global::VividVista.Properties.Resources.icons8_alinear_al_centro_50;
             this.picCentro.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.picCentro.Location = new System.Drawing.Point(408, 5);
+            this.picCentro.Location = new System.Drawing.Point(531, -58);
             this.picCentro.Name = "picCentro";
             this.picCentro.Size = new System.Drawing.Size(24, 21);
             this.picCentro.TabIndex = 24;
             this.picCentro.TabStop = false;
-            // 
-            // picAIzq
-            // 
-            this.picAIzq.BackColor = System.Drawing.Color.White;
-            this.picAIzq.BackgroundImage = global::VividVista.Properties.Resources.icons8_alinear_a_la_izquierda_50;
-            this.picAIzq.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.picAIzq.Location = new System.Drawing.Point(378, 5);
-            this.picAIzq.Name = "picAIzq";
-            this.picAIzq.Size = new System.Drawing.Size(24, 21);
-            this.picAIzq.TabIndex = 23;
-            this.picAIzq.TabStop = false;
             // 
             // picTachar
             // 
@@ -1025,6 +986,7 @@
             this.picTachar.Size = new System.Drawing.Size(21, 21);
             this.picTachar.TabIndex = 22;
             this.picTachar.TabStop = false;
+            this.picTachar.Click += new System.EventHandler(this.picTachar_Click);
             // 
             // picSubrayar
             // 
@@ -1037,6 +999,7 @@
             this.picSubrayar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picSubrayar.TabIndex = 21;
             this.picSubrayar.TabStop = false;
+            this.picSubrayar.Click += new System.EventHandler(this.picSubrayar_Click);
             // 
             // picItalics
             // 
@@ -1050,6 +1013,7 @@
             this.picItalics.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picItalics.TabIndex = 20;
             this.picItalics.TabStop = false;
+            this.picItalics.Click += new System.EventHandler(this.picItalics_Click);
             // 
             // MainWindow
             // 
@@ -1124,10 +1088,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.picCanvas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBold)).EndInit();
             this.panelText.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.picRelleno)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picADer)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picCentro)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picAIzq)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picTachar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picSubrayar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picItalics)).EndInit();
@@ -1206,10 +1167,7 @@
         private System.Windows.Forms.ComboBox cmbSizeText;
         private System.Windows.Forms.PictureBox picBold;
         private System.Windows.Forms.Panel panelText;
-        private System.Windows.Forms.PictureBox picRelleno;
-        private System.Windows.Forms.PictureBox picADer;
         private System.Windows.Forms.PictureBox picCentro;
-        private System.Windows.Forms.PictureBox picAIzq;
         private System.Windows.Forms.PictureBox picTachar;
         private System.Windows.Forms.PictureBox picSubrayar;
         private System.Windows.Forms.PictureBox picItalics;
