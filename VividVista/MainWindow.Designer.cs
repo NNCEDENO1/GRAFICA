@@ -108,14 +108,13 @@
             this.cmbFontText = new System.Windows.Forms.ComboBox();
             this.cmbSizeText = new System.Windows.Forms.ComboBox();
             this.picBold = new System.Windows.Forms.PictureBox();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.pictureBox12 = new System.Windows.Forms.PictureBox();
-            this.pictureBox11 = new System.Windows.Forms.PictureBox();
-            this.pictureBox8 = new System.Windows.Forms.PictureBox();
-            this.pictureBox7 = new System.Windows.Forms.PictureBox();
-            this.pictureBox6 = new System.Windows.Forms.PictureBox();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.panelText = new System.Windows.Forms.Panel();
+            this.picRelleno = new System.Windows.Forms.PictureBox();
+            this.picADer = new System.Windows.Forms.PictureBox();
+            this.picCentro = new System.Windows.Forms.PictureBox();
+            this.picAIzq = new System.Windows.Forms.PictureBox();
+            this.picTachar = new System.Windows.Forms.PictureBox();
+            this.picSubrayar = new System.Windows.Forms.PictureBox();
             this.picItalics = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.grpSlection.SuspendLayout();
@@ -165,14 +164,13 @@
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picCanvas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBold)).BeginInit();
-            this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            this.panelText.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picRelleno)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picADer)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picCentro)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picAIzq)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picTachar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picSubrayar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picItalics)).BeginInit();
             this.SuspendLayout();
             // 
@@ -301,6 +299,7 @@
             this.textBox.TabIndex = 2;
             this.textBox.TabStop = false;
             this.textBox.Click += new System.EventHandler(this.textBox_Click);
+            this.textBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.AggText_MouseDown);
             // 
             // fillBox
             // 
@@ -945,101 +944,99 @@
             // 
             this.picBold.BackColor = System.Drawing.Color.White;
             this.picBold.Image = ((System.Drawing.Image)(resources.GetObject("picBold.Image")));
-            this.picBold.Location = new System.Drawing.Point(266, 7);
+            this.picBold.Location = new System.Drawing.Point(266, 5);
             this.picBold.Name = "picBold";
-            this.picBold.Size = new System.Drawing.Size(24, 19);
+            this.picBold.Size = new System.Drawing.Size(24, 21);
             this.picBold.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picBold.TabIndex = 10;
             this.picBold.TabStop = false;
             this.picBold.Click += new System.EventHandler(this.picBold_Click);
             // 
-            // panel2
+            // panelText
             // 
-            this.panel2.Controls.Add(this.pictureBox12);
-            this.panel2.Controls.Add(this.pictureBox11);
-            this.panel2.Controls.Add(this.pictureBox8);
-            this.panel2.Controls.Add(this.pictureBox7);
-            this.panel2.Controls.Add(this.pictureBox6);
-            this.panel2.Controls.Add(this.pictureBox5);
-            this.panel2.Controls.Add(this.pictureBox3);
-            this.panel2.Controls.Add(this.picItalics);
-            this.panel2.Controls.Add(this.cmbFontText);
-            this.panel2.Controls.Add(this.picBold);
-            this.panel2.Controls.Add(this.cmbSizeText);
-            this.panel2.Location = new System.Drawing.Point(41, 169);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(541, 31);
-            this.panel2.TabIndex = 11;
-            this.panel2.Visible = false;
+            this.panelText.BackColor = System.Drawing.Color.White;
+            this.panelText.Controls.Add(this.picRelleno);
+            this.panelText.Controls.Add(this.picADer);
+            this.panelText.Controls.Add(this.picCentro);
+            this.panelText.Controls.Add(this.picAIzq);
+            this.panelText.Controls.Add(this.picTachar);
+            this.panelText.Controls.Add(this.picSubrayar);
+            this.panelText.Controls.Add(this.picItalics);
+            this.panelText.Controls.Add(this.cmbFontText);
+            this.panelText.Controls.Add(this.picBold);
+            this.panelText.Controls.Add(this.cmbSizeText);
+            this.panelText.Location = new System.Drawing.Point(23, 216);
+            this.panelText.Name = "panelText";
+            this.panelText.Size = new System.Drawing.Size(501, 31);
+            this.panelText.TabIndex = 11;
+            this.panelText.Visible = false;
             // 
-            // pictureBox12
+            // picRelleno
             // 
-            this.pictureBox12.Location = new System.Drawing.Point(500, 7);
-            this.pictureBox12.Name = "pictureBox12";
-            this.pictureBox12.Size = new System.Drawing.Size(24, 21);
-            this.pictureBox12.TabIndex = 27;
-            this.pictureBox12.TabStop = false;
+            this.picRelleno.BackColor = System.Drawing.Color.White;
+            this.picRelleno.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picRelleno.BackgroundImage")));
+            this.picRelleno.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.picRelleno.Location = new System.Drawing.Point(469, 5);
+            this.picRelleno.Name = "picRelleno";
+            this.picRelleno.Size = new System.Drawing.Size(24, 21);
+            this.picRelleno.TabIndex = 26;
+            this.picRelleno.TabStop = false;
             // 
-            // pictureBox11
+            // picADer
             // 
-            this.pictureBox11.Location = new System.Drawing.Point(470, 3);
-            this.pictureBox11.Name = "pictureBox11";
-            this.pictureBox11.Size = new System.Drawing.Size(24, 21);
-            this.pictureBox11.TabIndex = 26;
-            this.pictureBox11.TabStop = false;
+            this.picADer.BackColor = System.Drawing.Color.White;
+            this.picADer.BackgroundImage = global::VividVista.Properties.Resources.icons8_align_right_50;
+            this.picADer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.picADer.Location = new System.Drawing.Point(438, 5);
+            this.picADer.Name = "picADer";
+            this.picADer.Size = new System.Drawing.Size(24, 21);
+            this.picADer.TabIndex = 25;
+            this.picADer.TabStop = false;
             // 
-            // pictureBox8
+            // picCentro
             // 
-            this.pictureBox8.BackColor = System.Drawing.Color.White;
-            this.pictureBox8.BackgroundImage = global::VividVista.Properties.Resources.icons8_align_right_50;
-            this.pictureBox8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox8.Location = new System.Drawing.Point(440, 7);
-            this.pictureBox8.Name = "pictureBox8";
-            this.pictureBox8.Size = new System.Drawing.Size(24, 21);
-            this.pictureBox8.TabIndex = 25;
-            this.pictureBox8.TabStop = false;
+            this.picCentro.BackColor = System.Drawing.Color.White;
+            this.picCentro.BackgroundImage = global::VividVista.Properties.Resources.icons8_alinear_al_centro_50;
+            this.picCentro.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.picCentro.Location = new System.Drawing.Point(408, 5);
+            this.picCentro.Name = "picCentro";
+            this.picCentro.Size = new System.Drawing.Size(24, 21);
+            this.picCentro.TabIndex = 24;
+            this.picCentro.TabStop = false;
             // 
-            // pictureBox7
+            // picAIzq
             // 
-            this.pictureBox7.BackColor = System.Drawing.Color.White;
-            this.pictureBox7.BackgroundImage = global::VividVista.Properties.Resources.icons8_alinear_al_centro_50;
-            this.pictureBox7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox7.Location = new System.Drawing.Point(410, 5);
-            this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(24, 21);
-            this.pictureBox7.TabIndex = 24;
-            this.pictureBox7.TabStop = false;
+            this.picAIzq.BackColor = System.Drawing.Color.White;
+            this.picAIzq.BackgroundImage = global::VividVista.Properties.Resources.icons8_alinear_a_la_izquierda_50;
+            this.picAIzq.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.picAIzq.Location = new System.Drawing.Point(378, 5);
+            this.picAIzq.Name = "picAIzq";
+            this.picAIzq.Size = new System.Drawing.Size(24, 21);
+            this.picAIzq.TabIndex = 23;
+            this.picAIzq.TabStop = false;
             // 
-            // pictureBox6
+            // picTachar
             // 
-            this.pictureBox6.BackColor = System.Drawing.Color.White;
-            this.pictureBox6.BackgroundImage = global::VividVista.Properties.Resources.icons8_alinear_a_la_izquierda_50;
-            this.pictureBox6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox6.Location = new System.Drawing.Point(380, 7);
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(24, 21);
-            this.pictureBox6.TabIndex = 23;
-            this.pictureBox6.TabStop = false;
+            this.picTachar.BackColor = System.Drawing.Color.White;
+            this.picTachar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picTachar.BackgroundImage")));
+            this.picTachar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.picTachar.Location = new System.Drawing.Point(351, 5);
+            this.picTachar.Name = "picTachar";
+            this.picTachar.Size = new System.Drawing.Size(21, 21);
+            this.picTachar.TabIndex = 22;
+            this.picTachar.TabStop = false;
             // 
-            // pictureBox5
+            // picSubrayar
             // 
-            this.pictureBox5.Location = new System.Drawing.Point(353, 7);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(21, 19);
-            this.pictureBox5.TabIndex = 22;
-            this.pictureBox5.TabStop = false;
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.BackColor = System.Drawing.Color.White;
-            this.pictureBox3.BackgroundImage = global::VividVista.Properties.Resources.icons8_subrayar_501;
-            this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox3.Location = new System.Drawing.Point(326, 7);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(21, 19);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox3.TabIndex = 21;
-            this.pictureBox3.TabStop = false;
+            this.picSubrayar.BackColor = System.Drawing.Color.White;
+            this.picSubrayar.BackgroundImage = global::VividVista.Properties.Resources.icons8_subrayar_501;
+            this.picSubrayar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picSubrayar.Location = new System.Drawing.Point(321, 5);
+            this.picSubrayar.Name = "picSubrayar";
+            this.picSubrayar.Size = new System.Drawing.Size(24, 21);
+            this.picSubrayar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picSubrayar.TabIndex = 21;
+            this.picSubrayar.TabStop = false;
             // 
             // picItalics
             // 
@@ -1047,9 +1044,9 @@
             this.picItalics.BackgroundImage = global::VividVista.Properties.Resources.icons8_cursiva_501;
             this.picItalics.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.picItalics.Image = global::VividVista.Properties.Resources.icons8_cursiva_50;
-            this.picItalics.Location = new System.Drawing.Point(296, 7);
+            this.picItalics.Location = new System.Drawing.Point(295, 5);
             this.picItalics.Name = "picItalics";
-            this.picItalics.Size = new System.Drawing.Size(24, 19);
+            this.picItalics.Size = new System.Drawing.Size(21, 21);
             this.picItalics.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picItalics.TabIndex = 20;
             this.picItalics.TabStop = false;
@@ -1059,7 +1056,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1028, 567);
-            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.panelText);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.picCanvas);
@@ -1126,14 +1123,13 @@
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picCanvas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBold)).EndInit();
-            this.panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            this.panelText.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.picRelleno)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picADer)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picCentro)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picAIzq)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picTachar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picSubrayar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picItalics)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -1209,14 +1205,13 @@
         private System.Windows.Forms.ComboBox cmbFontText;
         private System.Windows.Forms.ComboBox cmbSizeText;
         private System.Windows.Forms.PictureBox picBold;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.PictureBox pictureBox12;
-        private System.Windows.Forms.PictureBox pictureBox11;
-        private System.Windows.Forms.PictureBox pictureBox8;
-        private System.Windows.Forms.PictureBox pictureBox7;
-        private System.Windows.Forms.PictureBox pictureBox6;
-        private System.Windows.Forms.PictureBox pictureBox5;
-        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.Panel panelText;
+        private System.Windows.Forms.PictureBox picRelleno;
+        private System.Windows.Forms.PictureBox picADer;
+        private System.Windows.Forms.PictureBox picCentro;
+        private System.Windows.Forms.PictureBox picAIzq;
+        private System.Windows.Forms.PictureBox picTachar;
+        private System.Windows.Forms.PictureBox picSubrayar;
         private System.Windows.Forms.PictureBox picItalics;
     }
 }
